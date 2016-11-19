@@ -1,0 +1,268 @@
+{
+  "total": 32,
+  "per_page": 20,
+  "current_page": 1,
+  "total_pages": 2,
+  "categories": [
+    {
+      "id": "15506",
+      "taxonomy": "category",
+      "name": "Acquisitions",
+      "slug": "acquisitions",
+      "url": "https:\/\/www.techinasia.com\/category\/acquisitions",
+      "description": "Acquisitions are the lifeblood of the startup ecosystem. A big exit means money is recirculated to fund the next generation of entrepreneurs. Here's where you keep track of all the acquisition moves.",
+      "count": 363,
+      "seo": {
+        "title": "Tech Acquisitions",
+        "description": "Get the Latest Acquisitions News from Tech In Asia. Keep up to date with the Latest Tech M&A News, Stories, and Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "15462",
+      "taxonomy": "category",
+      "name": "Announcements",
+      "slug": "announcements",
+      "url": "https:\/\/www.techinasia.com\/category\/announcements",
+      "description": "",
+      "count": 135,
+      "seo": {
+        "title": "Tech Announcements",
+        "description": "Get the Latest Tech Announcements from Tech In Asia. Keep up to date with Tech Announcement News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "123",
+      "taxonomy": "category",
+      "name": "Asia",
+      "slug": "asia",
+      "url": "https:\/\/www.techinasia.com\/category\/asia",
+      "description": "",
+      "count": 7164,
+      "seo": {
+        "title": "Asia News",
+        "description": "Get the Latest Asia Tech News from Tech In Asia. Keep up to date of News, Stories, and Community Insights from Across the Region with Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "40205",
+      "taxonomy": "category",
+      "name": "Ask Me Anything",
+      "slug": "ask-me-anything",
+      "url": "https:\/\/www.techinasia.com\/category\/ask-me-anything",
+      "description": "AMA: It is an acronym for \u201cAsk Me Anything.\u201d During an AMA, TIA community members ask questions and have a dialogue with the host.\r\n\r\nUpcoming AMA hosts:\r\n\r\n<ul>\r\n        <li>Online Panel - SaaS in India &amp; Southeast Asia, 8th November at 2:30PM SGT <\/li>\r\n        <li>Online Pitch - 500 Startups, 11th November at 2:30PM SGT <\/li>\r\n        <li>Online Pitch - SeedPlus, 6th December at 2:30PM SGT <\/li>\r\n        <li>Online Pitch - Blume Ventures, Date &amp; Time TBC <\/li>\r\n        <li>Online Pitch - Y Combinator, Date &amp; time TBC <\/li>\r\n        <li>Online Pitch - Ventureast, Date &amp; time TBC <\/li>\r\n        <li>Facebook Live AMA - Khailee Ng, Managing Partner at 500 Startups, Date &amp; time TBC<\/li>\r\n        <li>AMA - Dong Ngyuen - Creator of Flappy Bird, Date &amp; time TBC <\/li>\r\n<\/ul>",
+      "count": 144,
+      "seo": {
+        "title": "Ask Me Anything",
+        "description": "Get Involved with Ask Me Anything Sessions from Tech In Asia. Live AMA Sessions from Industry Leaders, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "39818",
+      "taxonomy": "category",
+      "name": "Branded Content",
+      "slug": "branded-content",
+      "url": "https:\/\/www.techinasia.com\/category\/branded-content",
+      "description": "Tech in Asia's Branded Content team works closely with reputable brands to create educational, insightful, and credible content for our audience. ",
+      "count": 46,
+      "seo": {
+        "title": "Branded Content",
+        "description": "Get the Latest Sponsored Content News from Tech In Asia. Keep up to date of the Branded Content Team, Stories, and Community Insights from Asia's Tech and Startup Ecosystem"
+      }
+    },
+    {
+      "id": "45261",
+      "taxonomy": "category",
+      "name": "Brief",
+      "slug": "brief",
+      "url": "https:\/\/www.techinasia.com\/category\/news\/brief",
+      "description": "",
+      "count": 48,
+      "seo": {
+        "title": "Tech News in Brief",
+        "description": "Get the Latest News Briefs from Tech In Asia. Keep up to date with the Latest Tech News Briefs, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "43226",
+      "taxonomy": "category",
+      "name": "Community",
+      "slug": "community",
+      "url": "https:\/\/www.techinasia.com\/category\/community",
+      "description": "The Tech in Asia (TIA) community exists to encourage open and free access to knowledge in the fields of technology and Asia's startup ecosystem. Discover insightful pieces carefully crafted by our TIA members below!\r\n<ul>\r\n<li>Want to share your entrepreneurial journey or industry insights? Create an article <a href=\"https:\/\/www.techinasia.com\/create\/article\">here<\/a>.<\/li>\r\n<li>Interested to know more? Find out what TIA community is all about <a href=\"https:\/\/www.techinasia.com\/community-manual\">here<\/a>!<\/li>\r\n<\/ul>\r\n",
+      "count": 96,
+      "seo": {
+        "title": "Community News",
+        "description": "Get the Latest Community News from Tech In Asia. Keep up to date with the Community Tech News, Stories, and Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "36954",
+      "taxonomy": "category",
+      "name": "Conference",
+      "slug": "conference",
+      "url": "https:\/\/www.techinasia.com\/category\/conference",
+      "description": "Tech in Asia's signature 2\u2010day conferences are held in Singapore, Bangalore, Tokyo, and Jakarta. Our conferences bring together entrepreneurs, investors, medias, corporations, developers and students to learn about the startup community.",
+      "count": 320,
+      "seo": {
+        "title": "Conferences",
+        "description": "Get the Latest Tech Conference News from Tech In Asia. Keep up to date with the Tech Conference Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "43484",
+      "taxonomy": "category",
+      "name": "Design",
+      "slug": "design",
+      "url": "https:\/\/www.techinasia.com\/category\/design",
+      "description": "",
+      "count": 43,
+      "seo": {
+        "title": "Design Tech News",
+        "description": "Get the Latest design News from Tech In Asia. Keep up to date with the design Tech News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "3886",
+      "taxonomy": "category",
+      "name": "Ecommerce",
+      "slug": "e-commerce-social-commerce",
+      "url": "https:\/\/www.techinasia.com\/category\/e-commerce-social-commerce",
+      "description": "Ecommerce is already big in Asia, and it only has room to grow. As local startups and global players tap into new opportunities, each country also creates its own ecommerce leaders. On top of these sites, social media is even becoming a new avenue for consumers to shop. While many countries still struggle to find better payment options and access to the internet, it's worth studying how new ecommerce players and the evolving demand of consumers shapes how Asians shop.",
+      "count": 2496,
+      "seo": {
+        "title": "E commerce News",
+        "description": "Get the Latest E Commerce News from Tech In Asia. Keep up to date with the Social Commerce News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "43483",
+      "taxonomy": "category",
+      "name": "Engineering",
+      "slug": "engineering",
+      "url": "https:\/\/www.techinasia.com\/category\/engineering",
+      "description": "All things software and sometimes hardware.",
+      "count": 60,
+      "seo": {
+        "title": "Engineering News",
+        "description": "Get the Latest Engineering News from Tech In Asia. Keep up to date of the Tech Engineering News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "3103",
+      "taxonomy": "category",
+      "name": "Events",
+      "slug": "events",
+      "url": "https:\/\/www.techinasia.com\/category\/events",
+      "description": "",
+      "count": 1989,
+      "seo": {
+        "title": "Tech Events",
+        "description": "Get the Latest Tech Events News from Tech In Asia. Keep up to date of Startup Events Tech News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "43548",
+      "taxonomy": "category",
+      "name": "Featured Community",
+      "slug": "featured-community",
+      "url": "https:\/\/www.techinasia.com\/category\/featured-community",
+      "description": "Tech in Asia is home to deep coverage about the tech scene. Check out our community and feature articles right here.",
+      "count": 151,
+      "seo": {
+        "title": "Featured Community",
+        "description": "Get the Latest from Featured Communities in Tech In Asia. Keep up to date with the Tech News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "11931",
+      "taxonomy": "category",
+      "name": "Featured Stories",
+      "slug": "featured",
+      "url": "https:\/\/www.techinasia.com\/category\/featured",
+      "description": "Tech in Asia is home to deep coverage about the tech scene. Check out our long-form pieces, in-depth profiles, and feature articles right here.",
+      "count": 1307,
+      "seo": {
+        "title": "Featured Stories",
+        "description": "Tech in Asia is home to deep coverage about the tech scene. Check out our long-form pieces, in-depth profiles, and feature articles right here."
+      }
+    },
+    {
+      "id": "39668",
+      "taxonomy": "category",
+      "name": "Gadgets",
+      "slug": "gadgets",
+      "url": "https:\/\/www.techinasia.com\/category\/gadgets",
+      "description": "Keep your early adopter cred by finding out about the latest gadgets from Asian tech. We follow  smartphones, wearables, and drones to the latest smart-anything - smart cars, smart homes, even smart aquariums.",
+      "count": 1441,
+      "seo": {
+        "title": "Gadget Reviews",
+        "description": "Get the Latest Gadgets Reviews from Tech In Asia. Keep up to date with the Tech Gadgets News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "39667",
+      "taxonomy": "category",
+      "name": "Gaming",
+      "slug": "gaming",
+      "url": "https:\/\/www.techinasia.com\/category\/gaming",
+      "description": "Track the rise of the next Rovio or Supercell in Asia. Trace the development of the top publishers, developers, and startups as they try to claim their share of a vast, multi-billion-dollar industry.",
+      "count": 4359,
+      "seo": {
+        "title": "Gaming News",
+        "description": "Get the Latest Gaming News from Tech In Asia. Keep up to date with the gaming Tech News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "3720",
+      "taxonomy": "category",
+      "name": "GreenTech",
+      "slug": "green-tech",
+      "url": "https:\/\/www.techinasia.com\/category\/green-tech",
+      "description": "",
+      "count": 106,
+      "seo": {
+        "title": "Green Tech News",
+        "description": "Get the Latest green-tech News from Tech In Asia. Keep up to date with the green-tech Tech News, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "15450",
+      "taxonomy": "category",
+      "name": "Investments",
+      "slug": "investments",
+      "url": "https:\/\/www.techinasia.com\/category\/investments",
+      "description": "In the world of technology, funding gives startups the needed fuel and vitamins to grow faster. At Tech in Asia, we give you the most complete startup funding coverage in Asia.",
+      "count": 2751,
+      "seo": {
+        "title": "Investment News",
+        "description": "Get the Latest Investments News from Tech In Asia. Keep up to date with the Latest Investment Stories and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "15440",
+      "taxonomy": "category",
+      "name": "Lists",
+      "slug": "lists",
+      "url": "https:\/\/www.techinasia.com\/category\/lists",
+      "description": "",
+      "count": 536,
+      "seo": {
+        "title": "Startup Lists",
+        "description": "Get the Latest Startup Lists from Tech In Asia. Keep up to date with the Latest Tech Lists, Stories, and Community Insights from Asia's Tech Ecosystem"
+      }
+    },
+    {
+      "id": "13056",
+      "taxonomy": "category",
+      "name": "Media",
+      "slug": "media-2",
+      "url": "https:\/\/www.techinasia.com\/category\/media-2",
+      "description": "",
+      "count": 522,
+      "seo": {
+        "title": "Media",
+        "description": ""
+      }
+    }
+  ]
+}
