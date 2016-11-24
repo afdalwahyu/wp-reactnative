@@ -61,19 +61,18 @@ export default class Card extends Component {
   render() {
     const { post } = this.props;
     const relative = moment(post.date_gmt).fromNow();
-    const name = `${post.author.first_name} ${post.author.last_name}`;
     return (
       <View style={styles.container}>
         <UserHead
-          avatar_url={post.author.avatar_url}
-          name={name}
+          avatar_url={'http://www.phpclasses.org/browse/view/flash/file/64364/name/noavatar.jpg'}
+          name={post.x_author}
           date={relative}
         />
-        <ImageAuto source={post.featured_image.source} />
+        <ImageAuto source={post.x_featured_media_original} />
         <TouchableWithoutFeedback onPress={() => this.showContent(post)}>
           <View style={styles.content}>
-            <Text style={styles.contentTitle}>{post.title}</Text>
-            <HTMLView value={post.excerpt} />
+            <Text style={styles.contentTitle}>{post.title.rendered}</Text>
+            <HTMLView value={post.excerpt.rendered} />
           </View>
         </TouchableWithoutFeedback>
         <View style={styles.buttonContainer}>

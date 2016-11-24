@@ -15,14 +15,12 @@ class NewsStore {
   async fetchFeed() {
     const data = new Api();
     this.feed = await data.getPost();
-    console.log(this.feed);
   }
 
   async fetchFeedPage(page) {
     const data = new Api();
     const tmp = await data.getFeedPage(page);
-    const tmp2 = tmp.posts;
-    tmp2.map(val => this.feed.posts.push(val));
+    this.feed = this.feed.concat(tmp);
   }
 
   async fetchComment(id) {

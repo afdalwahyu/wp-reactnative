@@ -34,6 +34,7 @@ export default class Comment extends Component {
   async componentWillMount() {
     this.setState({ fetchingData: true });
     await this.props.news.fetchComment(this.props.postId);
+    console.log(this.props.news.comments);
     this.setState({
       fetchingData: false,
       data: this.props.news.comments,
@@ -44,11 +45,11 @@ export default class Comment extends Component {
     return (
       <View key={comment.id} style={styles.comment}>
         <UserHead
-          avatar_url={comment.author.avatar_url}
-          name={`${comment.author.first_name} ${comment.author.last_name}`}
-          date={moment(comment.date).fromNow()}
+          avatar_url={comment.author_avatar_urls[96]}
+          name={comment.author_name}
+          date={moment(comment.date_gmt).fromNow()}
         />
-        <HTMLView value={comment.content} />
+        <HTMLView value={comment.content.rendered} />
       </View>
     );
   }
@@ -63,14 +64,13 @@ export default class Comment extends Component {
       );
     }
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    const data = _.values(this.state.data.comments);
-    const dataSource = ds.cloneWithRows(data);
+    const dataSource = ds.cloneWithRows(this.state.data.toJS());
     return (
       <View style={styles.container}>
-        <ActionBar comment title={`Comments (${data.length || 0})`} />
+        <ActionBar comment title={`Comments (${this.state.data.length || 0})`} />
         <ScrollView style={styles.commentContainer}>
           <View style={styles.header}>
-            <Text style={styles.title}>{this.props.title}</Text>
+            <Text style={styles.title}>{this.props.title.rendered}</Text>
             <Button color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-chatboxes', type: 'ionicon', color: '#5e5e5e' }} title={'COMMENT'} />
           </View>
           <ListView

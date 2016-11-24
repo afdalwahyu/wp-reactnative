@@ -1,6 +1,6 @@
 class Api {
   constructor() {
-    this.baseURL = 'https://www.techinasia.com/wp-json/techinasia/2.0/';
+    this.baseURL = 'http://wpreact.wpdevcloud.com/wp-json/wp/v2/';
     this.per_page = 7;
   }
 
@@ -20,7 +20,7 @@ class Api {
 
   // there are parent field to match with parent id comment
   getCommentPost(id) {
-    const url = `${this.baseURL}posts/${id}/comments?context=state`;
+    const url = `${this.baseURL}comments?post=${id}`;
     return fetch(url, { method: 'GET' })
       .then(response => response.json())
       .catch(err => console.log(err));

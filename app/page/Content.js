@@ -12,6 +12,7 @@ import moment from 'moment';
 import { observer } from 'mobx-react/native';
 import ActionBar from '../components/ActionBar';
 import WebRender from '../components/WebRender';
+import UserHead from '../components/UserHead';
 
 @observer(['nav'])
 export default class Content extends Component {
@@ -24,16 +25,14 @@ export default class Content extends Component {
         <ActionBar content />
         <ScrollView>
           <View style={[styles.scrollBg, styles.title]}>
-            <Text style={styles.titletext}>{post.title}</Text>
+            <Text style={styles.titletext}>{post.title.rendered}</Text>
           </View>
-          <View style={[styles.scrollBg, styles.author]}>
-            <Image source={{ uri: post.author.avatar_url }} style={styles.avatar} />
-            <View style={styles.authorcontent}>
-              <Text style={styles.name}>{post.author.first_name} {post.author.last_name}</Text>
-              <Text>{date}</Text>
-            </View>
-          </View>
-          <WebRender content={post.content} />
+          <UserHead
+            avatar_url={'http://www.phpclasses.org/browse/view/flash/file/64364/name/noavatar.jpg'}
+            name={post.x_author}
+            date={date}
+          />
+          <WebRender content={post.content.rendered} />
         </ScrollView>
       </View>
     );

@@ -26,7 +26,7 @@ export default class MyComponent extends Component {
   async componentWillMount() {
     await this.props.news.fetchFeed();
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.posts.toJS()),
+      dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.toJS()),
       init: false,
     });
   }
@@ -35,7 +35,7 @@ export default class MyComponent extends Component {
     this.setState({ refreshing: true });
     await this.props.news.fetchFeed();
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.posts.toJS()),
+      dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.toJS()),
       refreshing: false,
     });
   }
@@ -48,7 +48,7 @@ export default class MyComponent extends Component {
       this.setState({ buffering: true });
       await this.props.news.fetchFeedPage(this.props.news.page);
       this.setState({
-        dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.posts.toJS()),
+        dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.toJS()),
         buffering: false,
       });
     }
