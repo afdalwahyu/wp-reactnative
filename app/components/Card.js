@@ -76,8 +76,11 @@ export default class Card extends Component {
           </View>
         </TouchableWithoutFeedback>
         <View style={styles.buttonContainer}>
-          {_.includes(this.props.storage.key, post.id) && <Button onPress={() => this.saveContent(post)} color={'#fff'} buttonStyle={[styles.button, styles.savedButton]} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#fff' }} title={'SAVED'} /> }
-          {!_.includes(this.props.storage.key, post.id) && <Button onPress={() => this.saveContent(post)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'SAVE'} /> }
+          {
+            (_.includes(this.props.storage.key, post.id))
+            ? <Button onPress={() => this.saveContent(post)} color={'#fff'} buttonStyle={[styles.button, styles.savedButton]} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#fff' }} title={'SAVED'} />
+            : <Button onPress={() => this.saveContent(post)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'SAVE'} />
+          }
           <Button onPress={() => this.showComment(post.id)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-chatboxes', type: 'ionicon', color: '#5e5e5e' }} title={'COMMENT'} />
         </View>
       </View>

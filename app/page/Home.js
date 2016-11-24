@@ -5,15 +5,23 @@ import {
   ScrollView,
   RefreshControl,
   ActivityIndicator,
+  AsyncStorage,
 } from 'react-native';
 import { observer } from 'mobx-react/native';
 import Card from '../components/Card';
 
-@observer(['news'])
+@observer(['news', 'storage'])
 export default class MyComponent extends Component {
 
   constructor(props) {
     super(props);
+    this.props.storage.key = AsyncStorage.getItem('listKey')
+      .then((value) => {
+        if (value !== null) {
+          return JSON.parse(value);
+        }
+        return [];
+      });
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([]),
@@ -68,7 +76,7 @@ export default class MyComponent extends Component {
         refreshControl={refreshControl}
         onScroll={event => this._loadMore(event)}
       >
-        <ActivityIndicator style={{marginTop: 5}} animating={this.state.init} size={'small'} />
+        <ActivityIndicator style={{ marginTop: 5 }} animating={this.state.init} size={'small'} />
         <ListView
           enableEmptySections
           initialListSize={2}
@@ -76,7 +84,7 @@ export default class MyComponent extends Component {
           renderRow={rowData => this.renderRow(rowData)}
           pageSize={2}
         />
-        <ActivityIndicator style={{marginTop: 5}} animating={this.state.buffering} size={'small'} />
+        <ActivityIndicator style={{ marginTop: 5 }} animating={this.state.buffering} size={'small'} />
       </ScrollView>
     );
   }
