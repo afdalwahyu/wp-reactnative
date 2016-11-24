@@ -26,6 +26,20 @@ class Api {
       .catch(err => console.log(err));
   }
 
+  getCategories() {
+    const url = `${this.baseURL}categories`;
+    return fetch(url, { method: 'GET' })
+      .then(response => response.json())
+      .catch(err => console.log(err));
+  }
+
+  getItemCategories(id, page) {
+    const url = `${this.baseURL}posts?categories=${id}&per_page=${this.per_page}&page=${page}`;
+    return fetch(url, { method: 'GET' })
+      .then(response => response.json())
+      .catch(err => console.log(err));
+  }
+
 }
 
 export default Api;

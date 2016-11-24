@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   ListView,
-  ScrollView,
+  View,
   RefreshControl,
   ActivityIndicator,
   AsyncStorage,
@@ -42,12 +42,10 @@ export default class MyComponent extends Component {
     });
   }
 
-  async _loadMore(event) {
-    const { nativeEvent } = event;
-    const differ = nativeEvent.contentSize.height - nativeEvent.contentOffset.y;
-    if ((differ <= 1000) && (this.state.buffering === false)) {
-      this.props.news.page += 1;
+  async _loadMore() {
+    if (this.state.buffering === false) {
       this.setState({ buffering: true });
+      this.props.news.page += 1;
       await this.props.news.fetchFeedPage(this.props.news.page);
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.toJS()),
@@ -65,21 +63,20 @@ export default class MyComponent extends Component {
       <RefreshControl refreshing={this.state.refreshing} onRefresh={() => this._onRefresh()} />
     );
     return (
-      <ScrollView
+      <View
         style={styles.container}
-        refreshControl={refreshControl}
-        onScroll={event => this._loadMore(event)}
       >
-        <ActivityIndicator style={{ marginTop: 5 }} animating={this.state.init} size={'small'} />
+        {this.state.init && <ActivityIndicator style={styles.animate} animating={this.state.init} size={'small'} />}
         <ListView
+          refreshControl={refreshControl}
           enableEmptySections
           initialListSize={2}
           dataSource={this.state.dataSource}
           renderRow={rowData => this.renderRow(rowData)}
-          pageSize={2}
+          onEndReached={() => this._loadMore()}
         />
-        <ActivityIndicator style={{ marginTop: 5 }} animating={this.state.buffering} size={'small'} />
-      </ScrollView>
+        {this.state.buffering && <ActivityIndicator style={[styles.animate, styles.bottom]} animating={this.state.buffering} size={'small'} />}
+      </View>
     );
   }
 }
@@ -87,5 +84,12 @@ export default class MyComponent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  animate: {
+    marginTop: 5,
+    backgroundColor: 'rgba(0,0,0,0)',
+  },
+  bottom: {
+    bottom: 0,
   },
 });

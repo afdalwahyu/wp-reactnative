@@ -12,6 +12,7 @@ import Content from './page/Content';
 import Comment from './page/Comment';
 import Saved from './page/Saved';
 import Search from './page/Search';
+import ShowListCat from './page/ShowListCat';
 
 import news from './store/NewsStore';
 import nav from './store/Nav';
@@ -45,6 +46,8 @@ export default class Index extends Component {
         return <Saved {...route.passProps} />;
       case 'Search':
         return <Search {...route.passProps} />;
+      case 'ShowListCat':
+        return <ShowListCat {...route.passProps} />;
       default:
         return <Main {...route.passProps} />;
     }

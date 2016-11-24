@@ -55,7 +55,7 @@ export default class MiniLists extends Component {
           {
             (_.includes(this.props.storage.key, posts.id))
             ? <Button onPress={() => this.saveContent(posts)} color={'#fff'} buttonStyle={[styles.button, styles.savedButton]} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#fff' }} title={'SAVED'} />
-            : <Button onPress={() => this.saveContent(posts)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'UNDO'} />
+            : <Button onPress={() => this.saveContent(posts)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'SAVE'} />
           }
           <Button onPress={() => this.showContent(posts)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-chatboxes', type: 'ionicon', color: '#5e5e5e' }} title={'READ MORE'} />
         </View>

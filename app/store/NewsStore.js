@@ -5,6 +5,7 @@ class NewsStore {
   @observable feed;
   @observable comments;
   @observable page;
+  @observable itemCategories;
 
   constructor() {
     this.feed = null;
@@ -26,6 +27,11 @@ class NewsStore {
   async fetchComment(id) {
     const data = new Api();
     this.comments = await data.getCommentPost(id);
+  }
+
+  async fetchItemCategory(id, page) {
+    const data = new Api();
+    return await data.getItemCategories(id, page);
   }
 
 }

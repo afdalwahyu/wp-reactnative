@@ -18,6 +18,7 @@
     "react-native-html-render": "^1.0.5",
     "react-native-htmlview": "^0.5.0",
     "react-native-image-progress": "^0.6.0",
+    "react-native-infinite-scroll-view": "^0.4.2",
     "react-native-progress": "^3.1.0",
     "react-native-scrollable-tab-view": "^0.6.0",
     "react-native-vector-icons": "^3.0.0"

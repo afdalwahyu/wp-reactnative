@@ -1,10 +1,12 @@
 import { observable } from 'mobx';
 import { AsyncStorage } from 'react-native';
 import _ from 'lodash';
+import Api from './Api';
 
 class Storage {
   @observable saved;
   @observable key;
+  @observable categories;
 
   constructor() {
     this.key = AsyncStorage.getItem('listKey')
@@ -14,6 +16,11 @@ class Storage {
         }
         return [];
       });
+  }
+
+  async getCategories() {
+    const data = new Api();
+    this.categories = await data.getCategories();
   }
 
   async getSaved() {

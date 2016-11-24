@@ -4299,9 +4299,20 @@ react-native-image-progress@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/react-native-image-progress/-/react-native-image-progress-0.6.0.tgz#14614add12beaa247a052e5a52e6a9fee0fb8c67"
 
+react-native-infinite-scroll-view@^0.4.2:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/react-native-infinite-scroll-view/-/react-native-infinite-scroll-view-0.4.2.tgz#9091a213aeedf6ac2cee0374648406ab32790f74"
+  dependencies:
+    react-clone-referenced-element "^1.0.1"
+    react-native-scrollable-mixin "^1.0.0"
+
 react-native-progress@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/react-native-progress/-/react-native-progress-3.1.0.tgz#775d69fceda3ebbf6b1cdafdf9342c1fbccb8216"
+
+react-native-scrollable-mixin@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-scrollable-mixin/-/react-native-scrollable-mixin-1.0.1.tgz#34a32167b64248594154fd0d6a8b03f22740548e"
 
 react-native-scrollable-tab-view@^0.6.0:
   version "0.6.0"

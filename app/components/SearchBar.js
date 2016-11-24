@@ -3,7 +3,6 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableWithoutFeedback,
   TextInput,
@@ -23,6 +22,7 @@ export default class SearchBar extends Component {
   }
 
   _pressBack() {
+    this.textInput.blur();
     return this.props.nav.navigator.pop();
   }
 
