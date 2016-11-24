@@ -1,9 +1,9 @@
 TODO Navigator:
 
 TODO Page:
-  ☐ Create Search Page
   ☐ Create Login Page
   ☐ Create SignUp Page
+  ☐ Offline categories
 
 TODO Component:
   ☐ Hide ActionBar when scroll
@@ -15,6 +15,7 @@ Future Improvement:
 
 ＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
 Archive:
+  ✔ Create Search Page @done(2016-11-24 21:51) @project(TODO Page)
   ✔ Create Navigator @important(1) @done(2016-11-13 11:27) @project(TODO Navigator)
   ✔ Create Content Page @important(2) @done(2016-11-13 18:44) @project(TODO Page)
   ✔ Create Comment Page @done(2016-11-14 16:46) @project(TODO Page)

@@ -73,7 +73,7 @@ export default class MyComponent extends Component {
       </View>
     );
 
-    const search = <SearchBar />;
+    const search = <SearchBar {...this.props} handleSubmit={this.props.handleSubmit} />;
 
     if (this.props.content) {
       return content;

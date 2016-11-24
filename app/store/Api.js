@@ -40,6 +40,14 @@ class Api {
       .catch(err => console.log(err));
   }
 
+  searchPosts(text, page) {
+    const encoded = encodeURI(text);
+    const url = `${this.baseURL}posts?search=${encoded}&per_page=${this.per_page}&page=${page}`;
+    return fetch(url, { method: 'GET' })
+      .then(response => response.json())
+      .catch(err => console.log(err));
+  }
+
 }
 
 export default Api;

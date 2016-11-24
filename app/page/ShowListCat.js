@@ -34,7 +34,6 @@ export default class ShowListCat extends Component {
       dataSource: this.state.dataSource.cloneWithRows(data),
       init: false,
     });
-    console.log(this.state.dataSource);
   }
 
   async _loadMore() {

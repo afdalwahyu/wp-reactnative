@@ -9,26 +9,12 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Button } from 'react-native-elements';
-import { observer } from 'mobx-react/native';
 
-@observer(['nav'])
 export default class SearchBar extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: null,
-    };
-  }
 
   _pressBack() {
     this.textInput.blur();
     return this.props.nav.navigator.pop();
-  }
-
-  _findContent() {
-    console.log(this.state.text);
-    this.textInput.blur();
   }
 
   render() {
@@ -45,13 +31,12 @@ export default class SearchBar extends Component {
             placeholderTextColor={'#fff'}
             underlineColorAndroid={'#fff'}
             style={styles.title}
-            onChangeText={text => this.setState({ text })}
-            onSubmitEditing={() => this._findContent()}
-            ref={(input) => { this.textInput = input; }}
+            onSubmitEditing={this.props.handleSubmit}
+            {...this.props}
           />
         </View>
         <Button
-          onPress={() => this._findContent()}
+          onPress={this.props.handleSubmit}
           icon={{ name: 'search', type: 'font-awesome' }}
           small
           backgroundColor={'#C01820'}

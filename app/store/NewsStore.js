@@ -5,12 +5,13 @@ class NewsStore {
   @observable feed;
   @observable comments;
   @observable page;
-  @observable itemCategories;
+  @observable searched;
 
   constructor() {
     this.feed = null;
     this.comments = null;
     this.page = 1;
+    this.searched = [];
   }
 
   async fetchFeed() {
@@ -32,6 +33,11 @@ class NewsStore {
   async fetchItemCategory(id, page) {
     const data = new Api();
     return await data.getItemCategories(id, page);
+  }
+
+  async searchPosts(text, page) {
+    const data = new Api();
+    return await data.searchPosts(text, page);
   }
 
 }

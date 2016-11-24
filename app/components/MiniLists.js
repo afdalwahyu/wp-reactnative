@@ -23,7 +23,6 @@ export default class MiniLists extends Component {
   }
 
   showContent(data) {
-    console.log(data);
     this.props.nav.content = data;
     this.props.nav.navigator.push({
       name: 'Content',
