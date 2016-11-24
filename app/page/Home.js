@@ -15,13 +15,6 @@ export default class MyComponent extends Component {
 
   constructor(props) {
     super(props);
-    this.props.storage.key = AsyncStorage.getItem('listKey')
-      .then((value) => {
-        if (value !== null) {
-          return JSON.parse(value);
-        }
-        return [];
-      });
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([]),
@@ -33,6 +26,7 @@ export default class MyComponent extends Component {
 
   async componentWillMount() {
     await this.props.news.fetchFeed();
+    this.props.storage.key = JSON.parse(await AsyncStorage.getItem('listKey'));
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.toJS()),
       init: false,
