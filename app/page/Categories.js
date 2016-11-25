@@ -6,6 +6,7 @@ import {
   ListView,
   ActivityIndicator,
   TouchableOpacity,
+  RefreshControl,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { observer } from 'mobx-react/native';
@@ -19,14 +20,25 @@ export default class Categories extends Component {
     this.state = {
       dataSource: ds.cloneWithRows([]),
       init: true,
+      refreshing: false,
     };
   }
 
   async componentWillMount() {
-    await this.props.storage.getCategories();
+    // await this.props.storage.getCategories();
+    const offlinedata = await this.props.storage.getOfflineCategories();
     this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(this.props.storage.categories.toJS()),
+      dataSource: this.state.dataSource.cloneWithRows(offlinedata),
       init: false,
+    });
+  }
+
+  async _onRefresh() {
+    this.setState({ refreshing: true });
+    const newdata = await this.props.storage.getCategories();
+    this.setState({
+      dataSource: this.state.dataSource.cloneWithRows(newdata),
+      refreshing: false,
     });
   }
 
@@ -50,10 +62,14 @@ export default class Categories extends Component {
   }
 
   render() {
+    const refreshControl = (
+      <RefreshControl refreshing={this.state.refreshing} onRefresh={() => this._onRefresh()} />
+    );
     return (
       <View style={styles.container}>
         {this.state.init && <ActivityIndicator style={styles.activityIndicator} animating={this.state.init} size={'small'} />}
         <ListView
+          refreshControl={refreshControl}
           enableEmptySections
           initialListSize={2}
           dataSource={this.state.dataSource}

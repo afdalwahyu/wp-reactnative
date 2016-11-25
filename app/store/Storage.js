@@ -16,11 +16,31 @@ class Storage {
         }
         return [];
       });
+    AsyncStorage.getItem('categories')
+      .then((data) => {
+        if (data !== null) {
+          return JSON.parse(data);
+        }
+        return [];
+      });
   }
 
   async getCategories() {
     const data = new Api();
-    this.categories = await data.getCategories();
+    const tmp = await data.getCategories();
+    await AsyncStorage.setItem('categories', JSON.stringify(tmp));
+    return tmp;
+  }
+
+  async getOfflineCategories() {
+    const data = await AsyncStorage.getItem('categories');
+    if (data !== null) {
+      return JSON.parse(data);
+    }
+    const api = new Api();
+    const tmp = await api.getCategories();
+    await AsyncStorage.setItem('categories', JSON.stringify(tmp));
+    return tmp;
   }
 
   async getSaved() {

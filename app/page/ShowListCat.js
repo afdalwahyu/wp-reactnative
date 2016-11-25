@@ -57,7 +57,7 @@ export default class ShowListCat extends Component {
     return (
       <View style={styles.container}>
         <ActionBar comment title={this.props.title} />
-        <ActivityIndicator style={styles.animate} animating={this.state.init} size={'small'} />
+        {this.state.init && <ActivityIndicator style={styles.animate} animating={this.state.init} size={'small'} />}
         <ListView
           enableEmptySections
           dataSource={this.state.dataSource}

@@ -1,14 +1,11 @@
-TODO Navigator:
-
 TODO Page:
+  ✔ Offline categories @done(2016-11-25 13:34) @project(TODO Page)
+  ☐ submit comment
   ☐ Create Login Page
   ☐ Create SignUp Page
-  ☐ Offline categories
-
-TODO Component:
-  ☐ Hide ActionBar when scroll
 
 Future Improvement:
+  ☐ Hide ActionBar when scroll
   ☐ Grayscale image after open then content
   ☐ Push Notification
 
