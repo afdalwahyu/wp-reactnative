@@ -13,6 +13,7 @@ import Comment from './page/Comment';
 import Saved from './page/Saved';
 import Search from './page/Search';
 import ShowListCat from './page/ShowListCat';
+import WriteComment from './page/WriteComment';
 
 import news from './store/NewsStore';
 import nav from './store/Nav';
@@ -48,6 +49,8 @@ export default class Index extends Component {
         return <Search {...route.passProps} />;
       case 'ShowListCat':
         return <ShowListCat {...route.passProps} />;
+      case 'WriteComment':
+        return <WriteComment {...route.passProps} />;
       default:
         return <Main {...route.passProps} />;
     }

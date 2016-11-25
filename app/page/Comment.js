@@ -11,9 +11,7 @@ import {
   ListView,
   ActivityIndicator,
 } from 'react-native';
-import {
-  Button,
-} from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import _ from 'lodash';
 import { observer } from 'mobx-react/native';
 import ActionBar from '../components/ActionBar';
@@ -38,6 +36,15 @@ export default class Comment extends Component {
     this.setState({
       fetchingData: false,
       data: this.props.news.comments,
+    });
+  }
+
+  _handleWriteComment() {
+    this.props.nav.navigator.push({
+      name: 'WriteComment',
+      passProps: {
+        postId: this.props.postId,
+      },
     });
   }
 
@@ -71,7 +78,7 @@ export default class Comment extends Component {
         <ScrollView style={styles.commentContainer}>
           <View style={styles.header}>
             <Text style={styles.title}>{this.props.title.rendered}</Text>
-            <Button color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-chatboxes', type: 'ionicon', color: '#5e5e5e' }} title={'COMMENT'} />
+            <Button onPress={() => this._handleWriteComment()} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-chatboxes', type: 'ionicon', color: '#5e5e5e' }} title={'WRITE COMMENT'} />
           </View>
           <ListView
             enableEmptySections

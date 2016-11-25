@@ -48,6 +48,21 @@ class Api {
       .catch(err => console.log(err));
   }
 
+  sendComment(obj) {
+    const url = `${this.baseURL}comments`;
+    const init = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json, application/xml, text/plain, text/html, *.*',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
+      },
+      body: obj,
+    };
+    return fetch(url, init)
+      .then(response => response.json())
+      .catch(err => console.log(err));
+  }
+
 }
 
 export default Api;
