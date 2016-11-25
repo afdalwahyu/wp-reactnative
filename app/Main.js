@@ -33,9 +33,6 @@ export default class Main extends Component {
       >
         <Home style={styles.tabView} tabLabel="ios-home" />
         <Categories style={styles.tabView} tabLabel="md-list-box" />
-        <ScrollView tabLabel="ios-notifications" style={styles.tabView}>
-          <Notification />
-        </ScrollView>
         <ScrollView tabLabel="ios-contact" style={styles.tabView}>
           <Profile />
         </ScrollView>

@@ -39,10 +39,6 @@ export default class Profile extends Component {
           <View style={styles.opacity}>
             <Icon name={'ios-contact'} color={'#fff'} size={100} />
             <Text style={styles.nameuser}>Hi There!</Text>
-            <View style={[styles.separator, { width: this.state.width - 50 }]}>
-              <Text style={styles.button}>Login</Text>
-              <Text style={styles.button}>Sign Up</Text>
-            </View>
           </View>
         </Image>
         <List onPress={() => this.showSaved()} icon={'ios-bookmark'} title={'My Saved Items'} />

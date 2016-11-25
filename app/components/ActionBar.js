@@ -23,16 +23,14 @@ export default class MyComponent extends Component {
     });
   }
 
-  _pressShare() {
-    return 1;
-  }
-
-  _pressSave() {
-    return 1;
-  }
-
   _pressComment() {
-    return 1;
+    this.props.nav.navigator.push({
+      name: 'Comment',
+      passProps: {
+        postId: this.props.nav.content.id,
+        title: this.props.nav.content.title.rendered,
+      },
+    });
   }
 
   render() {
@@ -42,8 +40,7 @@ export default class MyComponent extends Component {
           <Icon size={30} style={styles.contentButton} color={'#fff'} name="md-arrow-round-back" backgroundColor="#3b5998" />
         </TouchableWithoutFeedback>
         <View style={styles.rightContainer}>
-          <Icon size={25} style={styles.contentButton} color={'#fff'} name="md-share" backgroundColor="#3b5998" onPress={() => this._pressShare()} />
-          <Icon size={25} style={styles.contentButton} color={'#fff'} name="ios-star" backgroundColor="#3b5998" onPress={() => this._pressSave()} />
+          <Icon size={25} style={styles.contentButton} color={'#fff'} name="md-share" backgroundColor="#3b5998" onPress={this.props.handleShare} />
           <Icon size={25} style={styles.contentButton} color={'#fff'} name="ios-chatboxes" backgroundColor="#3b5998" onPress={() => this._pressComment()} />
         </View>
       </View>
@@ -112,5 +109,6 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     flexDirection: 'row',
+    marginRight: 10,
   },
 });
