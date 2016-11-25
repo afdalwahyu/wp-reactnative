@@ -5,9 +5,11 @@ import {
   Image,
   Text,
 } from 'react-native';
+import Communications from 'react-native-communications';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { observer } from 'mobx-react/native';
 import List from '../components/ProfileListMenu';
+import env from '../env';
 
 @observer(['nav'])
 export default class Profile extends Component {
@@ -32,6 +34,14 @@ export default class Profile extends Component {
     });
   }
 
+  showFeedback() {
+    Communications.email(['afdalwahyu@gmail'], null, null, 'Feedback for Android Apps', 'My feedback:');
+  }
+
+  showAbout() {
+    Communications.web(env.url);
+  }
+
   render() {
     return (
       <View style={styles.container} onLayout={event => this.calculateWH(event)}>
@@ -42,8 +52,8 @@ export default class Profile extends Component {
           </View>
         </Image>
         <List onPress={() => this.showSaved()} icon={'ios-bookmark'} title={'My Saved Items'} />
-        <List icon={'ios-send'} title={'Feedback'} />
-        <List icon={'ios-flask'} title={'About'} />
+        <List onPress={() => this.showFeedback()} icon={'ios-send'} title={'Feedback'} />
+        <List onPress={() => this.showAbout()} icon={'ios-flask'} title={'About'} />
       </View>
     );
   }

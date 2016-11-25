@@ -10,6 +10,8 @@ import { observer } from 'mobx-react/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SearchBar from './SearchBar';
 
+import env from '../env';
+
 @observer(['nav'])
 export default class MyComponent extends Component {
 
@@ -53,7 +55,7 @@ export default class MyComponent extends Component {
           onPress={() => this._pressSearch()}
           icon={{ name: 'search', type: 'font-awesome' }}
           small
-          backgroundColor={'#C01820'}
+          backgroundColor={env.color.navigationBar}
           buttonStyle={styles.searchButton}
         />
       </View>
@@ -89,7 +91,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 50,
-    backgroundColor: '#C01820',
+    backgroundColor: env.color.navigationBar,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

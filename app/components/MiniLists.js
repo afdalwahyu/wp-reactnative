@@ -12,6 +12,8 @@ import { Button } from 'react-native-elements';
 import { observer } from 'mobx-react/native';
 import _ from 'lodash';
 
+import env from '../env';
+
 @observer(['nav', 'storage'])
 export default class MiniLists extends Component {
 
@@ -111,7 +113,7 @@ const styles = StyleSheet.create({
     paddingBottom: 7,
   },
   savedButton: {
-    backgroundColor: '#3498db',
+    backgroundColor: env.color.selectedButton,
     borderColor: '#fff',
   },
 });

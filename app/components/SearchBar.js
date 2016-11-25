@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Button } from 'react-native-elements';
+import env from '../env';
 
 export default class SearchBar extends Component {
 
@@ -39,7 +40,7 @@ export default class SearchBar extends Component {
           onPress={this.props.handleSubmit}
           icon={{ name: 'search', type: 'font-awesome' }}
           small
-          backgroundColor={'#C01820'}
+          backgroundColor={env.color.navigationBar}
           buttonStyle={styles.searchButton}
         />
       </View>
@@ -50,7 +51,7 @@ export default class SearchBar extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 50,
-    backgroundColor: '#C01820',
+    backgroundColor: env.color.navigationBar,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },

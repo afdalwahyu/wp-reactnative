@@ -4281,6 +4281,10 @@ react-deep-force-update@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-deep-force-update/-/react-deep-force-update-1.0.1.tgz#f911b5be1d2a6fe387507dd6e9a767aa2924b4c7"
 
+react-native-communications@^2.1.3:
+  version "2.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-communications/-/react-native-communications-2.1.3.tgz#13d6448d98ad364dd050a2d35eacf6545fe06ab3"
+
 react-native-elements@^0.6.3:
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/react-native-elements/-/react-native-elements-0.6.3.tgz#db5d1dc6a3afcc34d08c84c6917189a7e825fac7"

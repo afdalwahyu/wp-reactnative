@@ -4,6 +4,9 @@ import React, { Component } from 'react';
 import {
   Navigator,
   BackAndroid,
+  View,
+  StyleSheet,
+  StatusBar,
 } from 'react-native';
 import { Provider } from 'mobx-react/native';
 
@@ -18,6 +21,8 @@ import WriteComment from './page/WriteComment';
 import news from './store/NewsStore';
 import nav from './store/Nav';
 import storage from './store/Storage';
+
+import env from './env';
 
 export default class Index extends Component {
 
@@ -58,14 +63,26 @@ export default class Index extends Component {
 
   render() {
     return (
-      <Provider news={news} nav={nav} storage={storage}>
-        <Navigator
-          ref={(ref) => { this.navigator = ref; }}
-          initialRoute={{ name: 'Home' }}
-          renderScene={(route, navigator) => this.renderScene(route, navigator)}
-          configureScene={() => this.configureScene()}
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor={env.color.statusBar}
+          barStyle="light-content"
         />
-      </Provider>
+        <Provider news={news} nav={nav} storage={storage}>
+          <Navigator
+            ref={(ref) => { this.navigator = ref; }}
+            initialRoute={{ name: 'Home' }}
+            renderScene={(route, navigator) => this.renderScene(route, navigator)}
+            configureScene={() => this.configureScene()}
+          />
+        </Provider>
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

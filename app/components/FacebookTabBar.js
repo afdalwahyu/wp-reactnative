@@ -6,14 +6,15 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ActionBar from './ActionBar';
+import env from '../env'
 
 class FacebookTabBar extends Component {
 
   constructor() {
     super();
     this.tabIcons = [];
-    this.activeColor = '#C01820';
-    this.unactiveColor = '#CCCCCC';
+    this.activeColor = env.color.activeIcon;
+    this.unactiveColor = env.color.unactiveIcon;
   }
 
   componentDidMount() {

@@ -1,6 +1,8 @@
+import env from '../env';
+
 class Api {
   constructor() {
-    this.baseURL = 'http://wpreact.wpdevcloud.com/wp-json/wp/v2/';
+    this.baseURL = `${env.url}/wp-json/wp/v2/`;
     this.per_page = 7;
   }
 

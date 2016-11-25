@@ -14,6 +14,8 @@ import _ from 'lodash';
 import ImageAuto from './ImageAuto';
 import UserHead from './UserHead';
 
+import env from '../env'
+
 @observer(['nav', 'storage'])
 export default class Card extends Component {
 
@@ -142,7 +144,7 @@ const styles = StyleSheet.create({
     borderColor: '#5e5e5e',
   },
   savedButton: {
-    backgroundColor: '#3498db',
+    backgroundColor: env.color.selectedButton,
     borderColor: '#fff',
   },
 });

@@ -44,19 +44,24 @@ export default class WriteComment extends Component {
   }
 
   async _handleSubmit() {
-    const api = new Api();
-    const form = {
-      post: this.props.postId,
-      author_name: this.state.name,
-      author_email: this.state.email,
-      content: this.state.content,
-    };
-    const final = Object.keys(form).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(form[k])}`).join('&');
-    await api.sendComment(final);
-    this._content.blur();
-    this._email.blur();
-    this._name.blur();
-    return this.props.nav.navigator.pop();
+    if (this.validateEmail(this.state.email) && this.state.name && this.state.content) {
+      const api = new Api();
+      const form = {
+        post: this.props.postId,
+        author_name: this.state.name,
+        author_email: this.state.email,
+        content: this.state.content,
+      };
+      const final = Object.keys(form).map(k => `${encodeURIComponent(k)}=${encodeURIComponent(form[k])}`).join('&');
+      await api.sendComment(final);
+      this._content.blur();
+      this._email.blur();
+      this._name.blur();
+      ToastAndroid.show('your comment pending for approval', ToastAndroid.SHORT);
+      this.props.nav.navigator.pop();
+      return this.props.nav.navigator.pop();
+    }
+    return ToastAndroid.show('please insert valid data', ToastAndroid.SHORT);
   }
 
   render() {
