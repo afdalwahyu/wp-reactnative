@@ -3,7 +3,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { observer } from 'mobx-react/native';
@@ -38,12 +38,16 @@ export default class MyComponent extends Component {
   render() {
     const content = (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={() => this._pressBack()} >
+        <TouchableOpacity onPress={() => this._pressBack()} >
           <Icon size={30} style={styles.contentButton} color={'#fff'} name="md-arrow-round-back" backgroundColor="#3b5998" />
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
         <View style={styles.rightContainer}>
-          <Icon size={25} style={styles.contentButton} color={'#fff'} name="md-share" backgroundColor="#3b5998" onPress={this.props.handleShare} />
-          <Icon size={25} style={styles.contentButton} color={'#fff'} name="ios-chatboxes" backgroundColor="#3b5998" onPress={() => this._pressComment()} />
+          <TouchableOpacity onPress={this.props.handleShare}>
+            <Icon size={25} style={styles.contentButton} color={'#fff'} name="md-share" backgroundColor="#3b5998" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this._pressComment()}>
+            <Icon size={25} style={styles.contentButton} color={'#fff'} name="ios-chatboxes" backgroundColor="#3b5998" />
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -64,9 +68,9 @@ export default class MyComponent extends Component {
     const comment = (
       <View style={styles.container}>
         <View style={styles.comment}>
-          <TouchableWithoutFeedback onPress={() => this._pressBack()} >
+          <TouchableOpacity onPress={() => this._pressBack()} >
             <Icon size={30} style={styles.contentButton} color={'#fff'} name="md-arrow-round-back" backgroundColor="#3b5998" />
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
           <Text style={styles.title}>{this.props.title}</Text>
         </View>
       </View>

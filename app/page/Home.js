@@ -86,6 +86,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   animate: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
     marginTop: 5,
     backgroundColor: 'rgba(0,0,0,0)',
   },

@@ -64,6 +64,7 @@ export default class ShowListCat extends Component {
           renderRow={rowData => this.renderRow(rowData)}
           onEndReached={() => this._loadMore()}
         />
+        {this.state.buffering && <ActivityIndicator style={[styles.animate, styles.bottom]} animating={this.state.buffering} size={'small'} />}
       </View>
     );
   }
@@ -76,6 +77,9 @@ const styles = StyleSheet.create({
   animate: {
     marginTop: 5,
     backgroundColor: 'rgba(0,0,0,0)',
+    position: 'absolute',
+    left: 0,
+    right: 0,
   },
   bottom: {
     bottom: 0,

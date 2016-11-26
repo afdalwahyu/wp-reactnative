@@ -39,7 +39,7 @@ export default class Profile extends Component {
   }
 
   showAbout() {
-    Communications.web(env.url);
+    Communications.web(env.aboutURL);
   }
 
   render() {

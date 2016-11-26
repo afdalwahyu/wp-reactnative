@@ -33,6 +33,7 @@ export default class SearchBar extends Component {
             underlineColorAndroid={'#fff'}
             style={styles.title}
             onSubmitEditing={this.props.handleSubmit}
+            ref={(textInput) => { this.textInput = textInput; }}
             {...this.props}
           />
         </View>
