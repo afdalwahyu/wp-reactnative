@@ -71,10 +71,8 @@ export default class Categories extends Component {
         <ListView
           refreshControl={refreshControl}
           enableEmptySections
-          initialListSize={2}
           dataSource={this.state.dataSource}
           renderRow={rowData => this.renderRow(rowData)}
-          pageSize={2}
         />
       </View>
     );
@@ -83,11 +81,11 @@ export default class Categories extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     borderTopWidth: 1,
     borderBottomWidth: 1,
     backgroundColor: '#fff',
     borderColor: 'rgba(0,0,0,0.1)',
-    marginBottom: 15,
     shadowColor: '#ccc',
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.5,

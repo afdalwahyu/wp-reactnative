@@ -3,6 +3,8 @@ TODO Important:
   ✔ add share feature @done(2016-11-25 14:56) @project(TODO Page)
   ✔ submit comment @done(2016-11-25 22:07) @project(TODO Important)
   ✔ send email message @done(2016-11-25 22:22) @project(TODO Important)
+  ☐ admob
+  ☐ push notification
   ☐ show parrent comment(?)
 
 Future Improvement:
@@ -11,7 +13,6 @@ Future Improvement:
   ☐ Create SignUp Page
   ☐ Hide ActionBar when scroll
   ☐ Grayscale image after open then content
-  ☐ Push Notification
 
   https://ccp.cloudaccess.net/clientarea.php
   tenuousadvertisement@10minutemail.davidxia.com:Ahd6phohSung

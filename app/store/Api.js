@@ -29,7 +29,7 @@ class Api {
   }
 
   getCategories() {
-    const url = `${this.baseURL}categories`;
+    const url = `${this.baseURL}categories?per_page=100`;
     return fetch(url, { method: 'GET' })
       .then(response => response.json())
       .catch(err => console.log(err));

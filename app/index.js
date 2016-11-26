@@ -9,6 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 import { Provider } from 'mobx-react/native';
+import { AdMobBanner, AdMobInterstitial, PublisherBanner} from 'react-native-admob';
 
 import Main from './Main';
 import Content from './page/Content';
@@ -76,6 +77,12 @@ export default class Index extends Component {
             configureScene={() => this.configureScene()}
           />
         </Provider>
+        <AdMobBanner
+          bannerSize="smartBannerPortrait"
+          adUnitID="ca-app-pub-4240060703306921/5322871897"
+          testDeviceID="32081ee5595461cf"
+          didFailToReceiveAdWithError={err => console.log(err)}
+        />
       </View>
     );
   }
