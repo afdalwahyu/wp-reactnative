@@ -35,6 +35,8 @@
 		9D0BBAE38C99412E85259A40 /* libRNShare.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65892372F030415385BCBD8A /* libRNShare.a */; };
 		B04F59B09BBD4087939EB9EF /* libRNAdMobManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C527F6C5BAD64C61AE9BA582 /* libRNAdMobManager.a */; };
 		B94CA47020614D4096FD24E0 /* libRCTOneSignal.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A448EE8D674A43089D282430 /* libRCTOneSignal.a */; };
+		3C814E9B345546B9993EF884 /* libBugsnagReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D9019988B2049568302202C /* libBugsnagReactNative.a */; };
+		B79827DECE374B2FA12A8641 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = F45CC8D08A844382B45830BA /* libz.tbd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +158,9 @@
 		C527F6C5BAD64C61AE9BA582 /* libRNAdMobManager.a */ = {isa = PBXFileReference; name = "libRNAdMobManager.a"; path = "libRNAdMobManager.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 		756177DF745F4B9AB4E1D6DC /* RCTOneSignal.xcodeproj */ = {isa = PBXFileReference; name = "RCTOneSignal.xcodeproj"; path = "../node_modules/react-native-onesignal/ios/RCTOneSignal.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
 		A448EE8D674A43089D282430 /* libRCTOneSignal.a */ = {isa = PBXFileReference; name = "libRCTOneSignal.a"; path = "libRCTOneSignal.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		E311F30C4E6D43848092FA28 /* BugsnagReactNative.xcodeproj */ = {isa = PBXFileReference; name = "BugsnagReactNative.xcodeproj"; path = "../node_modules/bugsnag-react-native/cocoa/BugsnagReactNative.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		8D9019988B2049568302202C /* libBugsnagReactNative.a */ = {isa = PBXFileReference; name = "libBugsnagReactNative.a"; path = "libBugsnagReactNative.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
+		F45CC8D08A844382B45830BA /* libz.tbd */ = {isa = PBXFileReference; name = "libz.tbd"; path = "usr/lib/libz.tbd"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = sourcecode.text-based-dylib-definition; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,6 +190,8 @@
 				9D0BBAE38C99412E85259A40 /* libRNShare.a in Frameworks */,
 				B04F59B09BBD4087939EB9EF /* libRNAdMobManager.a in Frameworks */,
 				B94CA47020614D4096FD24E0 /* libRCTOneSignal.a in Frameworks */,
+				3C814E9B345546B9993EF884 /* libBugsnagReactNative.a in Frameworks */,
+				B79827DECE374B2FA12A8641 /* libz.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +318,7 @@
 				4AED049809D84FFDB46CD904 /* RNShare.xcodeproj */,
 				43301EFEED6342AEB67AE44D /* RNAdMobManager.xcodeproj */,
 				756177DF745F4B9AB4E1D6DC /* RCTOneSignal.xcodeproj */,
+				E311F30C4E6D43848092FA28 /* BugsnagReactNative.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -331,6 +339,7 @@
 				00E356EF1AD99517003FC87E /* WPReactNativeTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				A4D9904E9D394040A3628A29 /* Resources */,
+				6A81B58599774E198CBB2209 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -359,6 +368,15 @@
 				D77D28F537144FA3A3E2814B /* Zocial.ttf */,
 			);
 			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
+		6A81B58599774E198CBB2209 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F45CC8D08A844382B45830BA /* libz.tbd */,
+			);
+			name = Frameworks;
 			path = "";
 			sourceTree = "<group>";
 		};
@@ -656,6 +674,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 			};
 			name = Debug;
@@ -672,6 +691,7 @@
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WPReactNative.app/WPReactNative";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -694,6 +714,7 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/RCTOneSignal/**",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = "WPReactNative/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -720,6 +741,7 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/RCTOneSignal/**",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				INFOPLIST_FILE = "WPReactNative/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -775,6 +797,7 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/RCTOneSignal/**",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
@@ -819,6 +842,7 @@
 					"$(SRCROOT)/../node_modules/react-native-share/ios",
 					"$(SRCROOT)/../node_modules/react-native-admob/ios",
 					"$(SRCROOT)/../node_modules/react-native-onesignal/ios/RCTOneSignal/**",
+					"$(SRCROOT)/../node_modules/bugsnag-react-native/cocoa/**",
 				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;

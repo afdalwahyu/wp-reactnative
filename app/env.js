@@ -2,6 +2,7 @@ export default {
   url: 'http://wpreact.wpdevcloud.com',
   aboutURL: 'http://github.com/afdalwahyu',
   version: '1.0.0',
+  bugsnagApi: '093a4dc17ac1f496f0e90690bc8cef9b',
   color: {
     statusBar: '#303F9F',
     navigationBar: '#3F51B5',

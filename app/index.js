@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import { Provider } from 'mobx-react/native';
 import { AdMobBanner, AdMobInterstitial } from 'react-native-admob';
+import { Client } from 'bugsnag-react-native';
 
 import Main from './Main';
 import Content from './page/Content';
@@ -27,8 +28,13 @@ import env from './env';
 
 export default class Index extends Component {
 
+  constructor(props) {
+    super(props);
+    this.client = new Client(env.bugsnagApi);
+  }
+
   componentDidMount() {
-    if (env.interstitial.activated) {
+    if (env.ads.interstitial.activated) {
       AdMobInterstitial.setAdUnitID(env.ads.interstitial.adUnitID);
       AdMobInterstitial.setTestDeviceID('32081ee5595461cf');
     }
@@ -37,10 +43,10 @@ export default class Index extends Component {
       if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
         this.navigator.pop();
         tmp += 1;
-        if (tmp === 2 && env.interstitial.activated) {
+        if (tmp === 2 && env.ads.interstitial.activated) {
           AdMobInterstitial.requestAd(AdMobInterstitial.showAd);
           tmp = 0;
-        } else {
+        } else if (!env.ads.interstitial.activated) {
           tmp = 0;
         }
         return true;
