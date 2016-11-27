@@ -16,7 +16,7 @@ export default {
       activated: false,
     },
     interstitial: {
-      adUnitID: 'ca-app-pub-4240060703306921/6908853099',
+      adUnitID: 'ca-app-pub-3940256099942544/1033173712',
       activated: true,
     },
   },
