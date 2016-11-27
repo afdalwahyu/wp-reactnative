@@ -41,7 +41,7 @@ export default class WebRender extends Component {
     const script = `
       var body = document.body;
       var html = document.documentElement;
-      document.title = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+      document.title = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight);
       function resizeAttr(type) {
         var content = document.getElementsByTagName(type);
         for(var i=0; i < content.length; i++) {

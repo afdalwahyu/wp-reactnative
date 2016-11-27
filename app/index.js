@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 import { Provider } from 'mobx-react/native';
-import { AdMobBanner, AdMobInterstitial, PublisherBanner} from 'react-native-admob';
+import { AdMobBanner, AdMobInterstitial } from 'react-native-admob';
 
 import Main from './Main';
 import Content from './page/Content';
@@ -28,9 +28,21 @@ import env from './env';
 export default class Index extends Component {
 
   componentDidMount() {
+    if (env.interstitial.activated) {
+      AdMobInterstitial.setAdUnitID(env.ads.interstitial.adUnitID);
+      AdMobInterstitial.setTestDeviceID('32081ee5595461cf');
+    }
+    let tmp = 0;
     BackAndroid.addEventListener('hardwareBackPress', () => {
       if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
         this.navigator.pop();
+        tmp += 1;
+        if (tmp === 2 && env.interstitial.activated) {
+          AdMobInterstitial.requestAd(AdMobInterstitial.showAd);
+          tmp = 0;
+        } else {
+          tmp = 0;
+        }
         return true;
       }
       return false;
@@ -77,12 +89,14 @@ export default class Index extends Component {
             configureScene={() => this.configureScene()}
           />
         </Provider>
-        <AdMobBanner
-          bannerSize="smartBannerPortrait"
-          adUnitID="ca-app-pub-4240060703306921/5322871897"
-          testDeviceID="32081ee5595461cf"
-          didFailToReceiveAdWithError={err => console.log(err)}
-        />
+        {
+          env.ads.banner.activated &&
+          <AdMobBanner
+            bannerSize="smartBannerPortrait"
+            adUnitID={env.ads.banner.adUnitID}
+            testDeviceID="32081ee5595461cf"
+          />
+        }
       </View>
     );
   }

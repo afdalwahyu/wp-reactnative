@@ -14,7 +14,7 @@ import _ from 'lodash';
 import ImageAuto from './ImageAuto';
 import UserHead from './UserHead';
 
-import env from '../env'
+import env from '../env';
 
 @observer(['nav', 'storage'])
 export default class Card extends Component {
@@ -74,7 +74,10 @@ export default class Card extends Component {
         <TouchableWithoutFeedback onPress={() => this.showContent(post)}>
           <View style={styles.content}>
             <Text style={styles.contentTitle}>{post.title.rendered}</Text>
-            <HTMLView value={post.excerpt.rendered} />
+            <HTMLView
+              value={post.excerpt.rendered}
+              onLinkPress={() => this.showContent(post)}
+            />
           </View>
         </TouchableWithoutFeedback>
         <View style={styles.buttonContainer}>
