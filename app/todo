@@ -5,6 +5,7 @@ TODO Important:
   ✔ send email message @done(2016-11-25 22:22) @project(TODO Important)
   ✔ admob @done(2016-11-27 00:07) @project(TODO Important)
   ✔ push notification @done(2016-11-27 00:07) @project(TODO Important)
+  ✔ add deep linking @done(2016-11-28 21:17) @project(TODO Important)
   ☐ show parrent comment(?)
 
 Future Improvement:
@@ -13,6 +14,10 @@ Future Improvement:
   ☐ Create SignUp Page
   ☐ Hide ActionBar when scroll
   ☐ Grayscale image after open then content
+
+When Production:
+  ☐ setting onesignal api key
+  ☐ deep linking
 
   https://ccp.cloudaccess.net/clientarea.php
   tenuousadvertisement@10minutemail.davidxia.com:Ahd6phohSung

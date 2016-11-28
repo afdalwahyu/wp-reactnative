@@ -19,6 +19,11 @@ class NewsStore {
     this.feed = await data.getPost();
   }
 
+  async fetchPostSlug(slug) {
+    const data = new Api();
+    return await data.getPostSlug(slug);
+  }
+
   async fetchFeedPage(page) {
     const data = new Api();
     const tmp = await data.getFeedPage(page);

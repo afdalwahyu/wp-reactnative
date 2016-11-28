@@ -6,9 +6,11 @@ import {
   RefreshControl,
   ActivityIndicator,
   AsyncStorage,
+  Linking,
 } from 'react-native';
 import { AdMobInterstitial } from 'react-native-admob';
 import { observer } from 'mobx-react/native';
+import URL from 'url-parse';
 import Card from '../components/Card';
 import env from '../env';
 
@@ -38,6 +40,28 @@ export default class MyComponent extends Component {
       dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.toJS()),
       init: false,
     });
+  }
+
+  async componentDidMount() {
+    try {
+      const url = await Linking.getInitialURL();
+      if (url) {
+        const path = new URL(url);
+        const slug = path.pathname.split('/');
+        if (slug[slug.length - 2]) {
+          const send = slug[slug.length - 2];
+          const json = await this.props.news.fetchPostSlug(send);
+          if (json[0]) {
+            this.props.nav.content = json[0];
+            this.props.nav.navigator.push({
+              name: 'Content',
+            });
+          }
+        }
+      }
+    } catch (e) {
+      console.error('An error occurred', e);
+    }
   }
 
   componentWillReceiveProps() {

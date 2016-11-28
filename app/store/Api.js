@@ -13,6 +13,13 @@ class Api {
       .catch(err => console.log(err));
   }
 
+  getPostSlug(slug) {
+    const url = `${this.baseURL}posts?filter[name]=${slug}`;
+    return fetch(url, { method: 'GET' })
+      .then(response => response.json())
+      .catch(err => console.log(err));
+  }
+
   getFeedPage(page) {
     const url = `${this.baseURL}posts?page=${page}&per_page=${this.per_page}`;
     return fetch(url, { method: 'GET' })
