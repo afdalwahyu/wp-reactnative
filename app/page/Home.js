@@ -7,14 +7,21 @@ import {
   ActivityIndicator,
   AsyncStorage,
 } from 'react-native';
+import { AdMobInterstitial } from 'react-native-admob';
 import { observer } from 'mobx-react/native';
 import Card from '../components/Card';
+import env from '../env';
 
-@observer(['news', 'storage'])
+AdMobInterstitial.setAdUnitID(env.ads.interstitial.adUnitID);
+AdMobInterstitial.setTestDeviceID('32081ee5595461cf');
+
+@observer(['news', 'storage', 'nav'])
 export default class MyComponent extends Component {
 
   constructor(props) {
     super(props);
+    AdMobInterstitial.addEventListener('interstitialDidClose', () => AdMobInterstitial.requestAd());
+    AdMobInterstitial.requestAd();
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([]),
@@ -31,6 +38,15 @@ export default class MyComponent extends Component {
       dataSource: this.state.dataSource.cloneWithRows(this.props.news.feed.toJS()),
       init: false,
     });
+  }
+
+  componentWillReceiveProps() {
+    if (this.props.nav.ads === 4) {
+      AdMobInterstitial.requestAd();
+      AdMobInterstitial.showAd();
+      this.props.nav.ads = 0;
+    }
+    this.props.nav.ads += 1;
   }
 
   async _onRefresh() {

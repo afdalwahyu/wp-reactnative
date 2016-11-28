@@ -34,21 +34,9 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
-    if (env.ads.interstitial.activated) {
-      AdMobInterstitial.setAdUnitID(env.ads.interstitial.adUnitID);
-      AdMobInterstitial.setTestDeviceID('32081ee5595461cf');
-      AdMobInterstitial.addEventListener('interstitialDidClose', this.interstitialDidClose);
-      AdMobInterstitial.requestAd();
-    }
-    let tmp = 0;
     BackAndroid.addEventListener('hardwareBackPress', () => {
       if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
         this.navigator.pop();
-        tmp += 1;
-        if (tmp === 2) {
-          env.ads.interstitial.activated && AdMobInterstitial.showAd();
-          tmp = 0;
-        }
         return true;
       }
       return false;
