@@ -11,6 +11,7 @@ import {
 import { Provider } from 'mobx-react/native';
 import { AdMobBanner, AdMobInterstitial } from 'react-native-admob';
 import { Client } from 'bugsnag-react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 import Main from './Main';
 import Content from './page/Content';
@@ -34,6 +35,7 @@ export default class Index extends Component {
   }
 
   componentDidMount() {
+    SplashScreen.hide();
     BackAndroid.addEventListener('hardwareBackPress', () => {
       if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
         this.navigator.pop();

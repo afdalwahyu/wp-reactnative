@@ -5,7 +5,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableWithoutFeedback,
+  TouchableNativeFeedback,
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { observer } from 'mobx-react/native';
@@ -70,8 +70,12 @@ export default class Card extends Component {
           name={post.x_author}
           date={relative}
         />
-        <ImageAuto source={post.x_featured_media_original} />
-        <TouchableWithoutFeedback onPress={() => this.showContent(post)}>
+        <TouchableNativeFeedback onPress={() => this.showContent(post)}>
+          <View style={styles.flexed}>
+            <ImageAuto source={post.x_featured_media_original} />
+          </View>
+        </TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={() => this.showContent(post)}>
           <View style={styles.content}>
             <Text style={styles.contentTitle}>{post.title.rendered}</Text>
             <HTMLView
@@ -79,7 +83,7 @@ export default class Card extends Component {
               onLinkPress={() => this.showContent(post)}
             />
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableNativeFeedback>
         <View style={styles.buttonContainer}>
           {
             (_.includes(this.props.storage.key, post.id))
@@ -104,6 +108,9 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 3,
+  },
+  flexed: {
+    flex: 1,
   },
   author: {
     padding: 10,

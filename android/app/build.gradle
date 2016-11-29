@@ -137,6 +137,7 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-splash-screen')
     compile project(':bugsnag-react-native')
     compile project(':react-native-onesignal')
     compile project(':react-native-admob')
