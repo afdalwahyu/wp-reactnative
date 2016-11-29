@@ -16,9 +16,30 @@ Future Improvement:
   ☐ Grayscale image after open then content
 
 When Production:
+  ☐ add wordpress to install WP REST API & helper
+  ☐ set bugsnag
   ☐ add icon and launch screen
   ☐ setting onesignal api key
   ☐ deep linking
+  LDPI:
+  * Portrait: 200 x 320 px
+  * Landscape: 320 x 200 px
+  MDPI:
+  * Portrait: 320 x 480 px
+  * Landscape: 480 x 320 px
+  HDPI:
+  * Portrait: 480 x 800 px
+  * Landscape: 800 x 480 px
+  XHDPI:
+  * Portrait: 720 x 1280 px
+  * Landscape: 1280 x 720 px
+  XXHDPI:
+  * Portrait: 960 x 1600 px
+  * Landscape: 1600 x 960 px
+  XXXHDPI:
+  * Portrait: 1280 x 1920 px
+  * Landscape: 1920 x 1280 px
+
 
   https://ccp.cloudaccess.net/clientarea.php
   tenuousadvertisement@10minutemail.davidxia.com:Ahd6phohSung
