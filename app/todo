@@ -6,7 +6,7 @@ TODO Important:
   ✔ admob @done(2016-11-27 00:07) @project(TODO Important)
   ✔ push notification @done(2016-11-27 00:07) @project(TODO Important)
   ✔ add deep linking @done(2016-11-28 21:17) @project(TODO Important)
-  ☐ show parrent comment(?)
+  ✔ show parrent comment(?) @done(2016-11-30 16:51) @project(TODO Important)
 
 Future Improvement:
   ☐ push notification onesignal
@@ -17,9 +17,10 @@ Future Improvement:
 
 When Production:
   ☐ add wordpress to install WP REST API & helper
-  ☐ set bugsnag
-  ☐ add icon and launch screen
+  ☐ add admob key
   ☐ setting onesignal api key
+  ☐ add icon and launch screen
+  ☐ set bugsnag
   ☐ deep linking
   LDPI:
   * Portrait: 200 x 320 px

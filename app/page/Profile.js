@@ -77,23 +77,4 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'rgba(0,0,0,.7)',
   },
-  separator: {
-    padding: 5,
-    borderTopWidth: 3,
-    borderTopColor: 'rgba(254,254,254,.6)',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  button: {
-    color: '#fff',
-    fontSize: 15,
-    borderRadius: 50,
-    borderWidth: 1,
-    borderColor: '#fff',
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 5,
-    paddingBottom: 5,
-    margin: 10,
-  },
 });

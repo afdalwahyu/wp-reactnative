@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import ActionBar from './ActionBar';
-import env from '../env'
+import env from '../env';
 
 class FacebookTabBar extends Component {
 

@@ -166,20 +166,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
     color: '#000',
   },
-  author: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 10,
-  },
-  avatar: {
-    width: 40,
-    height: 40,
-    borderRadius: 50,
-  },
-  authorcontent: {
-    padding: 5,
-    flexDirection: 'column',
-  },
 });
 
 //  twitter icon

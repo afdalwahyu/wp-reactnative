@@ -12,11 +12,10 @@ import {
   ActivityIndicator,
 } from 'react-native';
 import { Button } from 'react-native-elements';
-import _ from 'lodash';
 import { observer } from 'mobx-react/native';
+import _ from 'lodash';
 import ActionBar from '../components/ActionBar';
 import UserHead from '../components/UserHead';
-import WebRender from '../components/WebRender';
 
 @observer(['nav', 'news'])
 export default class Comment extends Component {
@@ -26,16 +25,39 @@ export default class Comment extends Component {
     this.state = {
       fetchingData: true,
       data: null,
+      length: 0,
     };
   }
 
   async componentWillMount() {
     this.setState({ fetchingData: true });
     await this.props.news.fetchComment(this.props.postId);
-    console.log(this.props.news.comments);
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    const parent = [];
+    const child = [];
+    const tmp = _.sortBy(this.props.news.comments.toJS(), o => o.id);
+    tmp.forEach((val) => {
+      if (val.parent === 0) {
+        parent[val.id] = val;
+        parent[val.id].child = [];
+      } else {
+        child[val.id] = val;
+      }
+    });
+    const pivot = [];
+    child.forEach((val) => {
+      if (parent[val.parent]) {
+        parent[val.parent].child[val.id] = val;
+      } else {
+        parent[pivot[val.parent]].child[val.id] = val;
+      }
+      pivot[val.id] = val.parent;
+    });
+    const dataSource = ds.cloneWithRows(parent);
     this.setState({
       fetchingData: false,
-      data: this.props.news.comments,
+      length: tmp.length,
+      dataSource,
     });
   }
 
@@ -49,6 +71,16 @@ export default class Comment extends Component {
   }
 
   renderRow(comment) {
+    const child = comment.child.map(val => (
+      <View key={val.id} style={[styles.comment, styles.child]}>
+        <UserHead
+          avatar_url={val.author_avatar_urls[96]}
+          name={val.author_name}
+          date={moment(val.date_gmt).fromNow()}
+        />
+        <HTMLView value={val.content.rendered} />
+      </View>
+    ));
     return (
       <View key={comment.id} style={styles.comment}>
         <UserHead
@@ -57,6 +89,7 @@ export default class Comment extends Component {
           date={moment(comment.date_gmt).fromNow()}
         />
         <HTMLView value={comment.content.rendered} />
+        {child}
       </View>
     );
   }
@@ -70,11 +103,9 @@ export default class Comment extends Component {
         </View>
       );
     }
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
-    const dataSource = ds.cloneWithRows(this.state.data.toJS());
     return (
       <View style={styles.container}>
-        <ActionBar comment title={`Comments (${this.state.data.length || 0})`} />
+        <ActionBar comment title={`Comments (${this.state.length})`} />
         <ScrollView style={styles.commentContainer}>
           <View style={styles.header}>
             <Text style={styles.title}>{this.props.title.rendered}</Text>
@@ -82,7 +113,7 @@ export default class Comment extends Component {
           </View>
           <ListView
             enableEmptySections
-            dataSource={dataSource}
+            dataSource={this.state.dataSource}
             renderRow={rowData => this.renderRow(rowData)}
           />
         </ScrollView>
@@ -119,5 +150,9 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
     paddingRight: 20,
     borderBottomWidth: 1,
+  },
+  child: {
+    borderBottomWidth: 0,
+    marginLeft: 10,
   },
 });
