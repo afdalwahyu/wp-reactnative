@@ -14,16 +14,20 @@ import URL from 'url-parse';
 import Card from '../components/Card';
 import env from '../env';
 
-AdMobInterstitial.setAdUnitID(env.ads.interstitial.adUnitID);
-AdMobInterstitial.setTestDeviceID('32081ee5595461cf');
+if (env.ads.interstitial.activated) {
+  AdMobInterstitial.setAdUnitID(env.ads.interstitial.adUnitID);
+  AdMobInterstitial.setTestDeviceID('32081ee5595461cf');
+}
 
 @observer(['news', 'storage', 'nav'])
 export default class MyComponent extends Component {
 
   constructor(props) {
     super(props);
-    AdMobInterstitial.addEventListener('interstitialDidClose', () => AdMobInterstitial.requestAd());
-    AdMobInterstitial.requestAd();
+    if (env.ads.interstitial.activated) {
+      AdMobInterstitial.addEventListener('interstitialDidClose', () => AdMobInterstitial.requestAd());
+      AdMobInterstitial.requestAd();
+    }
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       dataSource: ds.cloneWithRows([]),
@@ -66,8 +70,10 @@ export default class MyComponent extends Component {
 
   componentWillReceiveProps() {
     if (this.props.nav.ads === 4) {
-      AdMobInterstitial.requestAd();
-      AdMobInterstitial.showAd();
+      if (env.ads.interstitial.activated) {
+        AdMobInterstitial.requestAd();
+        AdMobInterstitial.showAd();
+      }
       this.props.nav.ads = 0;
     }
     this.props.nav.ads += 1;

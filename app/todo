@@ -7,11 +7,12 @@ TODO Important:
   ✔ push notification @done(2016-11-27 00:07) @project(TODO Important)
   ✔ add deep linking @done(2016-11-28 21:17) @project(TODO Important)
   ✔ show parrent comment(?) @done(2016-11-30 16:51) @project(TODO Important)
+  ✔ push notification onesignal @done(2016-11-30 17:28) @project(Future Improvement)
 
 Future Improvement:
-  ☐ push notification onesignal
   ☐ Create Login Page
   ☐ Create SignUp Page
+  ☐ Signup OAuth 2 fb, google, dsb
   ☐ Hide ActionBar when scroll
   ☐ Grayscale image after open then content
 

@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from 'react-native';
 import { Provider } from 'mobx-react/native';
-import { AdMobBanner, AdMobInterstitial } from 'react-native-admob';
+import { AdMobBanner } from 'react-native-admob';
 import { Client } from 'bugsnag-react-native';
 import SplashScreen from 'react-native-splash-screen';
 
@@ -45,18 +45,8 @@ export default class Index extends Component {
     });
   }
 
-  componentWillUnmount() {
-    if (env.ads.interstitial.activated) {
-      AdMobInterstitial.removeAllListeners();
-    }
-  }
-
-  interstitialDidClose() {
-    AdMobInterstitial.requestAd();
-  }
-
   configureScene() {
-    return Navigator.SceneConfigs.FadeAndroid;
+    return Navigator.SceneConfigs.FloatFromBottomAndroid;
   }
 
   renderScene(route, navigator) {
