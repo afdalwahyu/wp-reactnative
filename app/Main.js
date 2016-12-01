@@ -31,14 +31,8 @@ export default class Main extends Component {
         initialPage={0}
         renderTabBar={() => <FacebookTabBar title={title} />}
       >
-
-        <Home tabLabel="ios-home" />
-        <ScrollView tabLabel="md-list-box" style={styles.tabView}>
-          <Categories />
-        </ScrollView>
-        <ScrollView tabLabel="ios-notifications" style={styles.tabView}>
-          <Notification />
-        </ScrollView>
+        <Home style={styles.tabView} tabLabel="ios-home" />
+        <Categories style={styles.tabView} tabLabel="md-list-box" />
         <ScrollView tabLabel="ios-contact" style={styles.tabView}>
           <Profile />
         </ScrollView>

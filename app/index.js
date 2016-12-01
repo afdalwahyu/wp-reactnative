@@ -4,22 +4,38 @@ import React, { Component } from 'react';
 import {
   Navigator,
   BackAndroid,
+  View,
+  StyleSheet,
+  StatusBar,
 } from 'react-native';
 import { Provider } from 'mobx-react/native';
+import { AdMobBanner } from 'react-native-admob';
+import { Client } from 'bugsnag-react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 import Main from './Main';
 import Content from './page/Content';
 import Comment from './page/Comment';
 import Saved from './page/Saved';
 import Search from './page/Search';
+import ShowListCat from './page/ShowListCat';
+import WriteComment from './page/WriteComment';
 
 import news from './store/NewsStore';
 import nav from './store/Nav';
 import storage from './store/Storage';
 
+import env from './env';
+
 export default class Index extends Component {
 
+  constructor(props) {
+    super(props);
+    this.client = new Client(env.bugsnagApi);
+  }
+
   componentDidMount() {
+    SplashScreen.hide();
     BackAndroid.addEventListener('hardwareBackPress', () => {
       if (this.navigator && this.navigator.getCurrentRoutes().length > 1) {
         this.navigator.pop();
@@ -45,6 +61,10 @@ export default class Index extends Component {
         return <Saved {...route.passProps} />;
       case 'Search':
         return <Search {...route.passProps} />;
+      case 'ShowListCat':
+        return <ShowListCat {...route.passProps} />;
+      case 'WriteComment':
+        return <WriteComment {...route.passProps} />;
       default:
         return <Main {...route.passProps} />;
     }
@@ -52,14 +72,34 @@ export default class Index extends Component {
 
   render() {
     return (
-      <Provider news={news} nav={nav} storage={storage}>
-        <Navigator
-          ref={(ref) => { this.navigator = ref; }}
-          initialRoute={{ name: 'Home' }}
-          renderScene={(route, navigator) => this.renderScene(route, navigator)}
-          configureScene={() => this.configureScene()}
+      <View style={styles.container}>
+        <StatusBar
+          backgroundColor={env.color.statusBar}
+          barStyle="light-content"
         />
-      </Provider>
+        <Provider news={news} nav={nav} storage={storage}>
+          <Navigator
+            ref={(ref) => { this.navigator = ref; }}
+            initialRoute={{ name: 'Home' }}
+            renderScene={(route, navigator) => this.renderScene(route, navigator)}
+            configureScene={() => this.configureScene()}
+          />
+        </Provider>
+        {
+          env.ads.banner.activated &&
+          <AdMobBanner
+            bannerSize="smartBannerPortrait"
+            adUnitID={env.ads.banner.adUnitID}
+            testDeviceID="32081ee5595461cf"
+          />
+        }
+      </View>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+});

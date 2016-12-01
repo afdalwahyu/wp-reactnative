@@ -37,11 +37,11 @@ export default class WebRender extends Component {
 
   render() {
     const { content } = this.props;
-    const css = 'https://static.techinasia.com/assets/e89c3101c60a7ddbd0e09b12bdb41273/app.b216ce401b2755f41b4fecd81a7b106d.css';
+    const css = 'http://wpreact.wpdevcloud.com/wp-content/themes/twentyfifteen/style.css?ver=4.6.1';
     const script = `
       var body = document.body;
       var html = document.documentElement;
-      document.title = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight, html.offsetHeight);
+      document.title = Math.max(body.scrollHeight, body.offsetHeight, html.clientHeight, html.scrollHeight);
       function resizeAttr(type) {
         var content = document.getElementsByTagName(type);
         for(var i=0; i < content.length; i++) {

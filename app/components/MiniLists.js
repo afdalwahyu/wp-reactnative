@@ -12,6 +12,8 @@ import { Button } from 'react-native-elements';
 import { observer } from 'mobx-react/native';
 import _ from 'lodash';
 
+import env from '../env';
+
 @observer(['nav', 'storage'])
 export default class MiniLists extends Component {
 
@@ -23,7 +25,6 @@ export default class MiniLists extends Component {
   }
 
   showContent(data) {
-    console.log(data);
     this.props.nav.content = data;
     this.props.nav.navigator.push({
       name: 'Content',
@@ -42,18 +43,21 @@ export default class MiniLists extends Component {
         <View style={styles.top}>
           <Image
             style={styles.image}
-            source={{ uri: posts.featured_image.source }}
+            source={{ uri: posts.x_featured_media }}
             resizeMethod={'resize'}
           />
           <View style={styles.contentContainer}>
-            <Text style={styles.contentTitle}>{posts.title}</Text>
-            <HTMLView value={posts.excerpt} />
+            <Text style={styles.contentTitle}>{posts.title.rendered}</Text>
+            <HTMLView value={posts.excerpt.rendered} />
           </View>
         </View>
-        <View style={{borderTopWidth: 1, marginBottom: 10,borderColor: '#ccc',}} />
+        <View style={{ borderTopWidth: 1, marginBottom: 10, borderColor: '#ccc' }} />
         <View style={styles.buttonContainer}>
-          {_.includes(this.props.storage.key, posts.id) && <Button onPress={() => this.saveContent(posts)} color={'#fff'} buttonStyle={[styles.button, styles.savedButton]} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#fff' }} title={'SAVED'} /> }
-          {!_.includes(this.props.storage.key, posts.id) && <Button onPress={() => this.saveContent(posts)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'UNDO'} /> }
+          {
+            (_.includes(this.props.storage.key, posts.id))
+            ? <Button onPress={() => this.saveContent(posts)} color={'#fff'} buttonStyle={[styles.button, styles.savedButton]} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#fff' }} title={'SAVED'} />
+            : <Button onPress={() => this.saveContent(posts)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'SAVE'} />
+          }
           <Button onPress={() => this.showContent(posts)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-chatboxes', type: 'ionicon', color: '#5e5e5e' }} title={'READ MORE'} />
         </View>
       </View>
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
     paddingBottom: 7,
   },
   savedButton: {
-    backgroundColor: '#3498db',
+    backgroundColor: env.color.selectedButton,
     borderColor: '#fff',
   },
 });

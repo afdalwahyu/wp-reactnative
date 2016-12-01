@@ -5,9 +5,11 @@ import {
   Image,
   Text,
 } from 'react-native';
+import Communications from 'react-native-communications';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { observer } from 'mobx-react/native';
 import List from '../components/ProfileListMenu';
+import env from '../env';
 
 @observer(['nav'])
 export default class Profile extends Component {
@@ -32,6 +34,14 @@ export default class Profile extends Component {
     });
   }
 
+  showFeedback() {
+    Communications.email(['afdalwahyu@gmail'], null, null, 'Feedback for Android Apps', 'My feedback:');
+  }
+
+  showAbout() {
+    Communications.web(env.aboutURL);
+  }
+
   render() {
     return (
       <View style={styles.container} onLayout={event => this.calculateWH(event)}>
@@ -39,15 +49,11 @@ export default class Profile extends Component {
           <View style={styles.opacity}>
             <Icon name={'ios-contact'} color={'#fff'} size={100} />
             <Text style={styles.nameuser}>Hi There!</Text>
-            <View style={[styles.separator, { width: this.state.width - 50 }]}>
-              <Text style={styles.button}>Login</Text>
-              <Text style={styles.button}>Sign Up</Text>
-            </View>
           </View>
         </Image>
         <List onPress={() => this.showSaved()} icon={'ios-bookmark'} title={'My Saved Items'} />
-        <List icon={'ios-send'} title={'Feedback'} />
-        <List icon={'ios-flask'} title={'About'} />
+        <List onPress={() => this.showFeedback()} icon={'ios-send'} title={'Feedback'} />
+        <List onPress={() => this.showAbout()} icon={'ios-flask'} title={'About'} />
       </View>
     );
   }
@@ -70,24 +76,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     backgroundColor: 'rgba(0,0,0,.7)',
-  },
-  separator: {
-    padding: 5,
-    borderTopWidth: 3,
-    borderTopColor: 'rgba(254,254,254,.6)',
-    flexDirection: 'row',
-    justifyContent: 'center',
-  },
-  button: {
-    color: '#fff',
-    fontSize: 15,
-    borderRadius: 50,
-    borderWidth: 1,
-    borderColor: '#fff',
-    paddingLeft: 30,
-    paddingRight: 30,
-    paddingTop: 5,
-    paddingBottom: 5,
-    margin: 10,
   },
 });

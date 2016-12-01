@@ -1,25 +1,59 @@
-TODO Navigator:
-  ✔ Create Navigator @important(1) @done(2016-11-13 11:27) @project(TODO Navigator)
+TODO Important:
+  ✔ Offline categories @done(2016-11-25 13:34) @project(TODO Page)
+  ✔ add share feature @done(2016-11-25 14:56) @project(TODO Page)
+  ✔ submit comment @done(2016-11-25 22:07) @project(TODO Important)
+  ✔ send email message @done(2016-11-25 22:22) @project(TODO Important)
+  ✔ admob @done(2016-11-27 00:07) @project(TODO Important)
+  ✔ push notification @done(2016-11-27 00:07) @project(TODO Important)
+  ✔ add deep linking @done(2016-11-28 21:17) @project(TODO Important)
+  ✔ show parrent comment(?) @done(2016-11-30 16:51) @project(TODO Important)
+  ✔ push notification onesignal @done(2016-11-30 17:28) @project(Future Improvement)
 
-TODO Page:
+Future Improvement:
+  ☐ Create Login Page
+  ☐ Create SignUp Page
+  ☐ Signup OAuth 2 fb, google, dsb
+  ☐ Hide ActionBar when scroll
+  ☐ Grayscale image after open then content
+
+When Production:
+  ☐ add wordpress to install WP REST API & helper
+  ☐ add admob key
+  ☐ setting onesignal api key
+  ☐ add icon and launch screen
+  ☐ set bugsnag
+  ☐ deep linking
+  LDPI:
+  * Portrait: 200 x 320 px
+  * Landscape: 320 x 200 px
+  MDPI:
+  * Portrait: 320 x 480 px
+  * Landscape: 480 x 320 px
+  HDPI:
+  * Portrait: 480 x 800 px
+  * Landscape: 800 x 480 px
+  XHDPI:
+  * Portrait: 720 x 1280 px
+  * Landscape: 1280 x 720 px
+  XXHDPI:
+  * Portrait: 960 x 1600 px
+  * Landscape: 1600 x 960 px
+  XXXHDPI:
+  * Portrait: 1280 x 1920 px
+  * Landscape: 1920 x 1280 px
+
+
+  https://ccp.cloudaccess.net/clientarea.php
+  tenuousadvertisement@10minutemail.davidxia.com:Ahd6phohSung
+＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
+Archive:
+  ✔ Create Search Page @done(2016-11-24 21:51) @project(TODO Page)
+  ✔ Create Navigator @important(1) @done(2016-11-13 11:27) @project(TODO Navigator)
   ✔ Create Content Page @important(2) @done(2016-11-13 18:44) @project(TODO Page)
   ✔ Create Comment Page @done(2016-11-14 16:46) @project(TODO Page)
   ✔ create saved content @done(2016-11-17 16:21) @project(TODO Page)
   ✔ Show Saved Content @done(2016-11-18 14:19) @project(TODO Page)
-  ☐ Create Search Page
-  ☐ Create Login Page
-  ☐ Create SignUp Page
-
-TODO Component:
+  ✔ Show and list categories page @done(2016-11-24 20:39) @project(TODO Page)
   ✔ Unlimited scrolling NewsFeed @important(2) @done(2016-11-15 20:33) @project(TODO Component)
   ✔ create loading activity for unlimited scrolling status @done(2016-11-17 16:21) @project(TODO Component)
-  ☐ Hide ActionBar when scroll
-
-Future Improvement:
   ✔ improve performance for saved item (should check only for 1 time) @done(2016-11-17 17:15) @project(Future Improvement)
-  ☐ Grayscale image after open then content
-  ☐ Push Notification
-
-
-＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿
-Archive:

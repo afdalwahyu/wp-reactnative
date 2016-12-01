@@ -3,12 +3,14 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { observer } from 'mobx-react/native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import SearchBar from './SearchBar';
+
+import env from '../env';
 
 @observer(['nav'])
 export default class MyComponent extends Component {
@@ -23,28 +25,29 @@ export default class MyComponent extends Component {
     });
   }
 
-  _pressShare() {
-    return 1;
-  }
-
-  _pressSave() {
-    return 1;
-  }
-
   _pressComment() {
-    return 1;
+    this.props.nav.navigator.push({
+      name: 'Comment',
+      passProps: {
+        postId: this.props.nav.content.id,
+        title: this.props.nav.content.title.rendered,
+      },
+    });
   }
 
   render() {
     const content = (
       <View style={styles.container}>
-        <TouchableWithoutFeedback onPress={() => this._pressBack()} >
+        <TouchableOpacity onPress={() => this._pressBack()} >
           <Icon size={30} style={styles.contentButton} color={'#fff'} name="md-arrow-round-back" backgroundColor="#3b5998" />
-        </TouchableWithoutFeedback>
+        </TouchableOpacity>
         <View style={styles.rightContainer}>
-          <Icon size={25} style={styles.contentButton} color={'#fff'} name="md-share" backgroundColor="#3b5998" onPress={() => this._pressShare()} />
-          <Icon size={25} style={styles.contentButton} color={'#fff'} name="ios-star" backgroundColor="#3b5998" onPress={() => this._pressSave()} />
-          <Icon size={25} style={styles.contentButton} color={'#fff'} name="ios-chatboxes" backgroundColor="#3b5998" onPress={() => this._pressComment()} />
+          <TouchableOpacity onPress={this.props.handleShare}>
+            <Icon size={25} style={styles.contentButton} color={'#fff'} name="md-share" backgroundColor="#3b5998" />
+          </TouchableOpacity>
+          <TouchableOpacity onPress={() => this._pressComment()}>
+            <Icon size={25} style={styles.contentButton} color={'#fff'} name="ios-chatboxes" backgroundColor="#3b5998" />
+          </TouchableOpacity>
         </View>
       </View>
     );
@@ -56,7 +59,7 @@ export default class MyComponent extends Component {
           onPress={() => this._pressSearch()}
           icon={{ name: 'search', type: 'font-awesome' }}
           small
-          backgroundColor={'#C01820'}
+          backgroundColor={env.color.navigationBar}
           buttonStyle={styles.searchButton}
         />
       </View>
@@ -65,15 +68,15 @@ export default class MyComponent extends Component {
     const comment = (
       <View style={styles.container}>
         <View style={styles.comment}>
-          <TouchableWithoutFeedback onPress={() => this._pressBack()} >
+          <TouchableOpacity onPress={() => this._pressBack()} >
             <Icon size={30} style={styles.contentButton} color={'#fff'} name="md-arrow-round-back" backgroundColor="#3b5998" />
-          </TouchableWithoutFeedback>
+          </TouchableOpacity>
           <Text style={styles.title}>{this.props.title}</Text>
         </View>
       </View>
     );
 
-    const search = <SearchBar />;
+    const search = <SearchBar {...this.props} handleSubmit={this.props.handleSubmit} />;
 
     if (this.props.content) {
       return content;
@@ -92,7 +95,7 @@ const styles = StyleSheet.create({
   },
   container: {
     height: 50,
-    backgroundColor: '#C01820',
+    backgroundColor: env.color.navigationBar,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -112,5 +115,6 @@ const styles = StyleSheet.create({
   },
   rightContainer: {
     flexDirection: 'row',
+    marginRight: 10,
   },
 });

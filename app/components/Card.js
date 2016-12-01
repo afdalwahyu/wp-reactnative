@@ -5,7 +5,7 @@ import {
   View,
   Text,
   StyleSheet,
-  TouchableWithoutFeedback,
+  TouchableNativeFeedback,
 } from 'react-native';
 import { Button } from 'react-native-elements';
 import { observer } from 'mobx-react/native';
@@ -13,6 +13,8 @@ import _ from 'lodash';
 
 import ImageAuto from './ImageAuto';
 import UserHead from './UserHead';
+
+import env from '../env';
 
 @observer(['nav', 'storage'])
 export default class Card extends Component {
@@ -61,24 +63,33 @@ export default class Card extends Component {
   render() {
     const { post } = this.props;
     const relative = moment(post.date_gmt).fromNow();
-    const name = `${post.author.first_name} ${post.author.last_name}`;
     return (
       <View style={styles.container}>
         <UserHead
-          avatar_url={post.author.avatar_url}
-          name={name}
+          avatar_url={'http://www.phpclasses.org/browse/view/flash/file/64364/name/noavatar.jpg'}
+          name={post.x_author}
           date={relative}
         />
-        <ImageAuto source={post.featured_image.source} />
-        <TouchableWithoutFeedback onPress={() => this.showContent(post)}>
-          <View style={styles.content}>
-            <Text style={styles.contentTitle}>{post.title}</Text>
-            <HTMLView value={post.excerpt} />
+        <TouchableNativeFeedback onPress={() => this.showContent(post)}>
+          <View style={styles.flexed}>
+            <ImageAuto source={post.x_featured_media_original} />
           </View>
-        </TouchableWithoutFeedback>
+        </TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={() => this.showContent(post)}>
+          <View style={styles.content}>
+            <Text style={styles.contentTitle}>{post.title.rendered}</Text>
+            <HTMLView
+              value={post.excerpt.rendered}
+              onLinkPress={() => this.showContent(post)}
+            />
+          </View>
+        </TouchableNativeFeedback>
         <View style={styles.buttonContainer}>
-          {_.includes(this.props.storage.key, post.id) && <Button onPress={() => this.saveContent(post)} color={'#fff'} buttonStyle={[styles.button, styles.savedButton]} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#fff' }} title={'SAVED'} /> }
-          {!_.includes(this.props.storage.key, post.id) && <Button onPress={() => this.saveContent(post)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'SAVE'} /> }
+          {
+            (_.includes(this.props.storage.key, post.id))
+            ? <Button onPress={() => this.saveContent(post)} color={'#fff'} buttonStyle={[styles.button, styles.savedButton]} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#fff' }} title={'SAVED'} />
+            : <Button onPress={() => this.saveContent(post)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-bookmark', type: 'ionicon', color: '#5e5e5e' }} title={'SAVE'} />
+          }
           <Button onPress={() => this.showComment(post.id)} color={'#5e5e5e'} buttonStyle={styles.button} small iconRight icon={{ name: 'ios-chatboxes', type: 'ionicon', color: '#5e5e5e' }} title={'COMMENT'} />
         </View>
       </View>
@@ -97,6 +108,9 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 3,
+  },
+  flexed: {
+    flex: 1,
   },
   author: {
     padding: 10,
@@ -140,7 +154,7 @@ const styles = StyleSheet.create({
     borderColor: '#5e5e5e',
   },
   savedButton: {
-    backgroundColor: '#3498db',
+    backgroundColor: env.color.selectedButton,
     borderColor: '#fff',
   },
 });

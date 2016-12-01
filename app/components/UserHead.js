@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
   authorcontent: {
     padding: 5,
     flexDirection: 'column',
+    marginLeft: 5,
   },
   name: {
     fontWeight: 'bold',

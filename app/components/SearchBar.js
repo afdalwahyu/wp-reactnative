@@ -3,32 +3,19 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   TouchableWithoutFeedback,
   TextInput,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Button } from 'react-native-elements';
-import { observer } from 'mobx-react/native';
+import env from '../env';
 
-@observer(['nav'])
 export default class SearchBar extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      text: null,
-    };
-  }
-
   _pressBack() {
-    return this.props.nav.navigator.pop();
-  }
-
-  _findContent() {
-    console.log(this.state.text);
     this.textInput.blur();
+    return this.props.nav.navigator.pop();
   }
 
   render() {
@@ -45,16 +32,16 @@ export default class SearchBar extends Component {
             placeholderTextColor={'#fff'}
             underlineColorAndroid={'#fff'}
             style={styles.title}
-            onChangeText={text => this.setState({ text })}
-            onSubmitEditing={() => this._findContent()}
-            ref={(input) => { this.textInput = input; }}
+            onSubmitEditing={this.props.handleSubmit}
+            ref={(textInput) => { this.textInput = textInput; }}
+            {...this.props}
           />
         </View>
         <Button
-          onPress={() => this._findContent()}
+          onPress={this.props.handleSubmit}
           icon={{ name: 'search', type: 'font-awesome' }}
           small
-          backgroundColor={'#C01820'}
+          backgroundColor={env.color.navigationBar}
           buttonStyle={styles.searchButton}
         />
       </View>
@@ -65,7 +52,7 @@ export default class SearchBar extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 50,
-    backgroundColor: '#C01820',
+    backgroundColor: env.color.navigationBar,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
