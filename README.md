@@ -1,6 +1,6 @@
 # Getting Started Wordpress Native Android Apps
 
-1. **1.** Setting Wordpress Plugins
+**1.** Setting Wordpress Plugins
  
 Before install required plugins, make sure you have permission to install custom plugins by asking to your hosting providers.
 
@@ -11,18 +11,18 @@ Plugins requirements :
 
 Installation instructions:
 
-1. **1.** Open wordpress admin panel
+**1.** Open wordpress admin panel
 
 Go to your site : **yoursite.com/wp-admin/**
 
 
 After you login you will go to this page.
 
-1. **2.** Go to Add New plugins at sidebar menu
+**2.** Go to Add New plugins at sidebar menu
 
 Click **Add New** button at sidebar menu.
 
-1. **3.** Search and Install, make sure you install Version 2
+**3.** Search and Install, make sure you install Version 2
 
 Next step is Install REST API HELPER
 
@@ -30,7 +30,7 @@ Make sure your plugin wok by check **yoursite.com/wp-json/wp/v2/posts/**
 
 something like this:
 
-1. **2.** Create AdMob Account
+**2.** Create AdMob Account
 
 - Signup [here](https://www.google.com/admob/)
 - Click **monetize new app**
@@ -39,7 +39,7 @@ something like this:
 - Next step is you can choose interstitial or banner. you can have both for your apps. but i recemmend just 1 ads for your app to keep smooth app transitions.
 - Don&#39;t forget to send me your **AD UNIT ID**
 
-1. **3.** Create Push Notification API
+**3.** Create Push Notification API
 
 Requirements:
 
@@ -54,7 +54,7 @@ Insert your api key &amp; project number to your onesignal app
 
 Send me your OneSignal APP ID
 
-1. **4.** Create Android Icon &amp; Splash Screen
+**4.** Create Android Icon &amp; Splash Screen
 
 If you don&#39;t have app icon, you can generate cool app icon from [here](https://android-material-icon-generator.bitdroid.de/)
 
@@ -71,11 +71,15 @@ Example of splash screen:
 
 If you have complete all step above, don&#39;t forget to send me:
 
-1. **1.** Your wordpress site
-2. **2.** Admob ad unit id
-3. **3.** OneSignal APP ID (if you have problem, you can send me your username &amp; password)
-4. **4.** Your APP Icon &amp; splash screen
+**1.** Your wordpress site
+**2.** Admob ad unit id
+**3.** OneSignal APP ID (if you have problem, you can send me your username &amp; password)
+**4.** Your APP Icon &amp; splash screen
 
 
 
-full screen shoot:
+full screenshoot:
+![1](https://raw.githubusercontent.com/afdalwahyu/wp-reactnative/master/assets/1.webp)
+![2](https://raw.githubusercontent.com/afdalwahyu/wp-reactnative/master/assets/2.webp)
+![3](https://raw.githubusercontent.com/afdalwahyu/wp-reactnative/master/assets/3.webp)
+![4](https://raw.githubusercontent.com/afdalwahyu/wp-reactnative/master/assets/4.webp)
