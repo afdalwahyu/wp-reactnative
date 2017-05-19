@@ -1,7 +1,7 @@
 # Getting Started Wordpress Native Android Apps
 
 1. **1.** Setting Wordpress Plugins
-
+ 
 Before install required plugins, make sure you have permission to install custom plugins by asking to your hosting providers.
 
 Plugins requirements :
